@@ -1,35 +1,43 @@
-const STATUS_FILTERS = [
-  { key: 'sung', label: '歌った' },
-  { key: 'unsung', label: '未歌唱' },
-]
+import { ERA_BUCKETS } from '../constants/eraBuckets'
+import { FILTER_ALL, SORT_MODES, STATUS_FILTERS, TYPE_FILTERS } from '../constants/filters'
 
-const TYPE_FILTERS = [
-  { key: 'OP', label: 'OPのみ' },
-  { key: 'ED', label: 'EDのみ' },
-]
+function ToggleGroup({
+  title,
+  items,
+  value,
+  values,
+  onChange,
+  mode = 'single',
+  allowToggleOff = true,
+  className = '',
+}) {
+  const selected = mode === 'multi' ? new Set(values) : null
 
-const VIEW_MODES = [
-  { key: 'list', label: '一覧' },
-  { key: 'grouped', label: '戦隊別' },
-]
+  const isActive = (key) => (mode === 'multi' ? selected.has(key) : value === key)
+  const handleClick = (key) => {
+    if (mode === 'multi') {
+      if (selected.has(key)) {
+        onChange(values.filter((current) => current !== key))
+        return
+      }
+      onChange([...values, key])
+      return
+    }
 
-const SORT_MODES = [
-  { key: 'series', label: '戦隊順' },
-  { key: 'updated', label: '更新順' },
-]
+    onChange(value === key && allowToggleOff ? FILTER_ALL : key)
+  }
 
-function Segment({ title, items, value, onChange, canToggleOff = false }) {
   return (
-    <div className="segment">
-      <span>{title}</span>
+    <div className={`segment ${className}`.trim()}>
+      {title ? <span>{title}</span> : null}
       <div>
         {items.map((item) => (
           <button
             key={item.key}
             type="button"
-            className={value === item.key ? 'active' : ''}
-            aria-pressed={value === item.key}
-            onClick={() => onChange(value === item.key && canToggleOff ? 'all' : item.key)}
+            className={isActive(item.key) ? 'active' : ''}
+            aria-pressed={isActive(item.key)}
+            onClick={() => handleClick(item.key)}
           >
             {item.label}
           </button>
@@ -44,30 +52,48 @@ export function FilterBar({
   setFilter,
   typeFilter,
   setTypeFilter,
-  viewMode,
-  setViewMode,
+  eraFilters,
+  setEraFilters,
   sortMode,
   setSortMode,
 }) {
   return (
     <section className="panel filter-grid">
       <p className="search-label">フィルタ</p>
-      <Segment
-        title="状態"
-        items={STATUS_FILTERS}
-        value={filter}
-        onChange={setFilter}
-        canToggleOff
-      />
-      <Segment
-        title="種類"
-        items={TYPE_FILTERS}
-        value={typeFilter}
-        onChange={setTypeFilter}
-        canToggleOff
-      />
-      <Segment title="表示モード" items={VIEW_MODES} value={viewMode} onChange={setViewMode} />
-      <Segment title="並び順" items={SORT_MODES} value={sortMode} onChange={setSortMode} />
+      <div className="filter-main">
+        <ToggleGroup
+          title="状態"
+          items={STATUS_FILTERS}
+          value={filter}
+          onChange={setFilter}
+          allowToggleOff
+        />
+        <ToggleGroup
+          title="種類"
+          items={TYPE_FILTERS}
+          value={typeFilter}
+          onChange={setTypeFilter}
+          allowToggleOff
+        />
+        <ToggleGroup
+          title="時代区分（複数選択可）"
+          items={ERA_BUCKETS}
+          values={eraFilters}
+          onChange={setEraFilters}
+          mode="multi"
+          className="segment-wide"
+        />
+      </div>
+      <div className="sort-controls">
+        <p className="search-label">並び順</p>
+        <ToggleGroup
+          title=""
+          items={SORT_MODES}
+          value={sortMode}
+          onChange={setSortMode}
+          allowToggleOff={false}
+        />
+      </div>
     </section>
   )
 }

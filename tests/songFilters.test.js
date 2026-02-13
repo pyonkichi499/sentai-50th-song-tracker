@@ -11,6 +11,7 @@ const songs = [
     id: 'b_ed_1',
     seriesNumber: 2,
     seriesName: 'B戦隊',
+    eraBucket: 'reiwa',
     seriesNameReading: 'びーせんたい',
     songTitle: 'Blue Ending',
     songTitleReading: 'ぶるーえんでぃんぐ',
@@ -26,6 +27,7 @@ const songs = [
     id: 'a_op_1',
     seriesNumber: 1,
     seriesName: 'A戦隊',
+    eraBucket: 'showa',
     seriesNameReading: 'えーせんたい',
     songTitle: 'Alpha Opening',
     songTitleReading: 'あるふぁおーぷんにんぐ',
@@ -41,6 +43,7 @@ const songs = [
     id: 'a_ed_1',
     seriesNumber: 1,
     seriesName: 'A戦隊',
+    eraBucket: 'showa',
     seriesNameReading: 'えーせんたい',
     songTitle: 'Alpha Ending',
     songTitleReading: 'あるふぁえんでぃんぐ',
@@ -64,6 +67,21 @@ test('filterAndSortSongs filters by song type', () => {
   const result = filterAndSortSongs({ songs, filter: 'all', typeFilter: 'ED', searchText: '' })
   assert.equal(result.length, 2)
   assert.equal(result.every((song) => song.songType === 'ED'), true)
+})
+
+test('filterAndSortSongs filters by era buckets with multi selection', () => {
+  const result = filterAndSortSongs({
+    songs,
+    filter: 'all',
+    typeFilter: 'all',
+    eraFilters: ['showa', 'extra'],
+    searchText: '',
+  })
+
+  assert.deepEqual(
+    result.map((song) => song.id),
+    ['a_op_1', 'a_ed_1'],
+  )
 })
 
 test('filterAndSortSongs filters by search text and sorts by series/type/number', () => {

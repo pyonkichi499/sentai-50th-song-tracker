@@ -20,6 +20,8 @@ lerna-debug.log*
 *.local
 src/lib/firebase.web.config.js
 .firebase/
+data/english-reading-list.json
+data/english-reading-list.tsv
 
 # Editor and IDE files
 .vscode/*

@@ -40,9 +40,23 @@ test('convert-csv supports official header format and ED variants', () => {
 `)
 
   assert.equal(songs.length, 2)
+  assert.equal(songs[0].seriesId, 'series_49')
   assert.equal(songs[0].seriesNumber, 49)
+  assert.equal(songs[0].seriesType, 'main')
+  assert.equal(songs[0].eraBucket, 'reiwa')
   assert.equal(songs[0].year, null)
   assert.equal(songs[1].songType, 'ED')
   assert.equal(songs[1].variant, null)
   assert.equal(songs[1].songNumber, 1)
+})
+
+test('convert-csv classifies extra entries as extra/extra', () => {
+  const songs = runConvert(`番号,作品名,OP／ED,曲名,歌手
+50,百獣戦隊ガオレンジャーVSスーパー戦隊,OP,ガオレンジャー吼えろ!!,山形ユキオ
+`)
+
+  assert.equal(songs.length, 1)
+  assert.equal(songs[0].seriesId, 'series_50')
+  assert.equal(songs[0].seriesType, 'extra')
+  assert.equal(songs[0].eraBucket, 'extra')
 })

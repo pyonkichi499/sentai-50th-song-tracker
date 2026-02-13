@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js'
+import { FILTER_ALL, SORT_SERIES, SORT_UPDATED } from '../constants/filters.js'
 
 function normalizeText(value) {
   return toHiragana(String(value ?? '').normalize('NFKC')).toLowerCase().trim()
@@ -111,7 +112,14 @@ function matchesQuery(song, query) {
   return searchable.includes(query)
 }
 
-export function filterAndSortSongs({ songs, filter, typeFilter, searchText, sortMode = 'series' }) {
+export function filterAndSortSongs({
+  songs,
+  filter,
+  typeFilter,
+  eraFilters = [],
+  searchText,
+  sortMode = SORT_SERIES,
+}) {
   const query = normalizeText(searchText)
   const looseQuery = normalizeLooseText(searchText)
 
@@ -125,7 +133,13 @@ export function filterAndSortSongs({ songs, filter, typeFilter, searchText, sort
       }
       return true
     })
-    .filter((song) => (typeFilter === 'all' ? true : song.songType === typeFilter))
+    .filter((song) => (typeFilter === FILTER_ALL ? true : song.songType === typeFilter))
+    .filter((song) => {
+      if (!Array.isArray(eraFilters) || eraFilters.length === 0) {
+        return true
+      }
+      return eraFilters.includes(song.eraBucket)
+    })
 
   let searched = filtered
   if (query.length > 0) {
@@ -133,7 +147,7 @@ export function filterAndSortSongs({ songs, filter, typeFilter, searchText, sort
     searched = strictMatches.length > 0 ? strictMatches : fuzzySearchSongs(filtered, looseQuery || query)
   }
 
-  return searched.toSorted(sortMode === 'updated' ? sortByRecentUpdate : sortBySeries)
+  return searched.toSorted(sortMode === SORT_UPDATED ? sortByRecentUpdate : sortBySeries)
 }
 
 export function countSung(songs) {

@@ -40,7 +40,7 @@ input {
 }
 
 .app-shell {
-  width: min(1100px, 100%);
+  width: min(1280px, 100%);
   margin: 0 auto;
   padding: 20px 16px 40px;
   display: grid;
@@ -152,44 +152,6 @@ input {
   transition: width 0.25s ease;
 }
 
-.filter-grid {
-  display: grid;
-  gap: 10px;
-}
-
-.segment {
-  display: grid;
-  gap: 6px;
-}
-
-.segment span {
-  font-size: 0.82rem;
-  color: #475569;
-  font-weight: 700;
-}
-
-.segment div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.segment button {
-  border: 1px solid #cbd5e1;
-  border-radius: 999px;
-  background: #fff;
-  padding: 4px 10px;
-  font-size: 0.86rem;
-  cursor: pointer;
-}
-
-.segment button.active {
-  background: #fb923c;
-  color: #fff;
-  border-color: #ea580c;
-  font-weight: 700;
-}
-
 .search-label {
   display: block;
   font-size: 0.82rem;
@@ -230,72 +192,10 @@ input[type='search'] {
   font-size: 1.06rem;
 }
 
-.group-list {
-  display: grid;
-  gap: 12px;
-}
-
-.virtual-scroll {
-  max-height: 72vh;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-.virtual-list {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.song-item {
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.song-item:last-child {
-  border-bottom: none;
-}
-
-.song-item label {
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 8px;
-  align-items: start;
-  padding: 10px 0;
-}
-
-.song-item input[type='checkbox'] {
-  margin-top: 4px;
-}
-
-.song-title {
-  font-weight: 700;
-}
-
-.song-subline {
-  color: #475569;
-  font-size: 0.82rem;
-  margin-top: 2px;
-}
-
-.is-sung .song-title {
-  color: #166534;
-  text-decoration: line-through;
-}
-
-.empty {
-  text-align: center;
-  color: #475569;
-  padding: 18px;
-}
-
 @media (min-width: 768px) {
   .app-shell {
     padding: 26px 20px 46px;
     gap: 14px;
-  }
-
-  .filter-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .stats-grid {

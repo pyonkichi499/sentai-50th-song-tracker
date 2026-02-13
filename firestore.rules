@@ -26,5 +26,10 @@ service cloud.firestore {
         && hasValidSongState();
       allow create, delete: if false;
     }
+
+    match /series/{seriesId} {
+      allow read: if true;
+      allow create, update, delete: if false;
+    }
   }
 }

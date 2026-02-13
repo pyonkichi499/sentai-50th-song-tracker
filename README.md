@@ -86,8 +86,28 @@ npm run firestore:seed:dry-run
 ```
 
 `firestore:seed` は同期モードです。原本データに存在しない `songs` ドキュメントは削除されます。
+同時に `series` コレクションも同期され、原本にない戦隊ドキュメントは削除されます。
 既存曲の `sung / sungAt / sungBy` は保持され、新規曲のみ初期値で作成されます。
 `firestore:seed:dry-run` は作成/更新/削除件数だけ表示し、Firestoreは更新しません。
+
+### Firestore データ構造
+- `songs/{songId}`
+  - 例: `series_49_op_1`
+  - 主な固定メタ: `seriesId`, `seriesNumber`, `seriesName`, `seriesType`, `eraBucket`, `songTitle`, `songType`, `songNumber`, `variant`, `artist`
+  - 更新可能: `sung`, `sungAt`, `sungBy`
+- `series/{seriesId}`
+  - 例: `series_49`
+  - フィールド: `seriesNumber`, `seriesName`, `seriesType`, `eraBucket`
+
+`seriesType` と `eraBucket` は以下で管理します。
+- 本編: `seriesType=main`
+- 番外: `seriesType=extra`
+- 区分:
+  - `showa` (1-12)
+  - `heisei_20c` (13-24)
+  - `heisei_21c` (25-42)
+  - `reiwa` (43-49)
+  - `extra` (50-55)
 
 ### 読み補正フロー（任意）
 1. `npm run data:readings:extract`

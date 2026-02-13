@@ -1,0 +1,84 @@
+.group-list {
+  display: grid;
+  gap: 12px;
+}
+
+.era-panel {
+  display: grid;
+  gap: 10px;
+}
+
+.era-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.era-title {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.era-title span {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.era-series-list {
+  display: grid;
+  gap: 10px;
+}
+
+.era-series-block {
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+.era-series-block h3 {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.song-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-item label {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 10px 0;
+}
+
+.song-item input[type='checkbox'] {
+  margin-top: 4px;
+}
+
+.song-title {
+  font-weight: 700;
+}
+
+.song-subline {
+  color: #475569;
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+
+.is-sung .song-title {
+  color: #166534;
+  text-decoration: line-through;
+}
+
+.empty {
+  text-align: center;
+  color: #475569;
+  padding: 18px;
+}

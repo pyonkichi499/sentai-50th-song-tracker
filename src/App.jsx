@@ -5,6 +5,14 @@ import { ProgressBar } from './components/ProgressBar'
 import { SearchBox } from './components/SearchBox'
 import { SongList } from './components/SongList'
 import { StatsPanel } from './components/StatsPanel'
+import { eraLabel } from './constants/eraBuckets'
+import {
+  FILTER_ALL,
+  SORT_SERIES,
+  sortModeLabel,
+  statusFilterLabel,
+  typeFilterLabel,
+} from './constants/filters'
 import { useSongStore } from './hooks/useSongStore'
 import { countSung, filterAndSortSongs, uniqueSeriesCount } from './lib/songFilters'
 import { getSongRepository } from './repositories/songRepositoryFactory'
@@ -12,23 +20,24 @@ import { getSongRepository } from './repositories/songRepositoryFactory'
 function App() {
   const repository = useMemo(() => getSongRepository(), [])
   const { songs, toggleSong, status, errorMessage } = useSongStore(repository)
-  const [filter, setFilter] = useState('all')
-  const [typeFilter, setTypeFilter] = useState('all')
+  const [filter, setFilter] = useState(FILTER_ALL)
+  const [typeFilter, setTypeFilter] = useState(FILTER_ALL)
+  const [eraFilters, setEraFilters] = useState([])
   const [searchText, setSearchText] = useState('')
-  const [viewMode, setViewMode] = useState('grouped')
-  const [sortMode, setSortMode] = useState('series')
+  const [sortMode, setSortMode] = useState(SORT_SERIES)
 
   const filteredSongs = useMemo(() => {
-    return filterAndSortSongs({ songs, filter, typeFilter, searchText, sortMode })
-  }, [filter, searchText, songs, sortMode, typeFilter])
+    return filterAndSortSongs({ songs, filter, typeFilter, eraFilters, searchText, sortMode })
+  }, [eraFilters, filter, searchText, songs, sortMode, typeFilter])
 
   const total = songs.length
   const sung = countSung(songs)
   const opSongs = songs.filter((song) => song.songType === 'OP')
   const edSongs = songs.filter((song) => song.songType === 'ED')
-  const filterLabel = filter === 'all' ? 'なし' : filter === 'sung' ? '歌った' : '未歌唱'
-  const typeFilterLabel = typeFilter === 'all' ? 'なし' : typeFilter
-  const sortModeLabel = sortMode === 'updated' ? '更新順' : '戦隊順'
+  const filterLabel = statusFilterLabel(filter)
+  const typeFilterText = typeFilterLabel(typeFilter)
+  const eraFilterLabel = eraFilters.length === 0 ? 'なし' : eraFilters.map(eraLabel).join(' / ')
+  const sortModeText = sortModeLabel(sortMode)
 
   return (
     <main className="app-shell">
@@ -53,18 +62,17 @@ function App() {
         setFilter={setFilter}
         typeFilter={typeFilter}
         setTypeFilter={setTypeFilter}
-        viewMode={viewMode}
-        setViewMode={setViewMode}
+        eraFilters={eraFilters}
+        setEraFilters={setEraFilters}
         sortMode={sortMode}
         setSortMode={setSortMode}
       />
       <section className="panel">
         <p className="search-label">
           表示件数: {filteredSongs.length} / {total}（状態フィルタ: {filterLabel} / 種類フィルタ:{' '}
-          {typeFilterLabel} / 並び順: {sortModeLabel}）
+          {typeFilterText} / 時代区分: {eraFilterLabel} / 並び順: {sortModeText}）
         </p>
       </section>
-      <SearchBox searchText={searchText} setSearchText={setSearchText} />
       <StatsPanel
         total={total}
         sung={sung}
@@ -74,11 +82,8 @@ function App() {
         edSung={countSung(edSongs)}
         seriesCount={uniqueSeriesCount(songs)}
       />
-      <SongList
-        songs={filteredSongs}
-        viewMode={viewMode}
-        onToggle={toggleSong}
-      />
+      <SearchBox searchText={searchText} setSearchText={setSearchText} />
+      <SongList songs={filteredSongs} onToggle={toggleSong} />
     </main>
   )
 }

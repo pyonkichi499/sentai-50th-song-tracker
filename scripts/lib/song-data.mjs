@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { classifySeries } from './series-meta.mjs'
 
 function parseCsvLine(line) {
   const result = []
@@ -77,11 +78,15 @@ function toSongRecord(row, indexBySeriesType) {
   const key = `${seriesNumber}:${songType}`
   const songNumber = (indexBySeriesType.get(key) || 0) + 1
   indexBySeriesType.set(key, songNumber)
+  const { seriesId, seriesType, eraBucket } = classifySeries(seriesNumber)
 
   return {
     id: `series_${seriesNumber}_${songType.toLowerCase()}_${songNumber}`,
+    seriesId,
     seriesNumber,
     seriesName,
+    seriesType,
+    eraBucket,
     year: null,
     songTitle,
     songType,
@@ -121,4 +126,26 @@ export function songsFromCsvText(rawText) {
 export function songsFromCsvFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8')
   return songsFromCsvText(raw)
+}
+
+export function buildSeriesRecordsFromSongs(songs) {
+  const bySeriesId = new Map()
+
+  for (const song of songs) {
+    if (!song || !song.seriesId) {
+      continue
+    }
+
+    if (!bySeriesId.has(song.seriesId)) {
+      bySeriesId.set(song.seriesId, {
+        id: song.seriesId,
+        seriesNumber: song.seriesNumber,
+        seriesName: song.seriesName,
+        seriesType: song.seriesType || 'unknown',
+        eraBucket: song.eraBucket || 'unknown',
+      })
+    }
+  }
+
+  return Array.from(bySeriesId.values()).sort((a, b) => a.seriesNumber - b.seriesNumber)
 }

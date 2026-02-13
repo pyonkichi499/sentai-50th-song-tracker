@@ -3,7 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { applicationDefault, cert, getApps, initializeApp } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
-import { songsFromCsvFile } from './lib/song-data.mjs'
+import { buildSeriesRecordsFromSongs, songsFromCsvFile } from './lib/song-data.mjs'
 
 const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS
 const projectId = process.env.FIREBASE_PROJECT_ID
@@ -55,10 +55,13 @@ if (!Array.isArray(songs) || songs.length === 0) {
 
 let batch = db.batch()
 let count = 0
-let total = 0
-let deleted = 0
-let created = 0
-let updated = 0
+let songTotal = 0
+let songDeleted = 0
+let songCreated = 0
+let songUpdated = 0
+let seriesDeleted = 0
+let seriesCreated = 0
+let seriesUpdated = 0
 const MAX_BATCH_SIZE = 400
 
 const flushBatch = async () => {
@@ -84,7 +87,7 @@ snapshot.docs.forEach((snapshotDoc) => {
   }
   batch.delete(snapshotDoc.ref)
   count += 1
-  deleted += 1
+  songDeleted += 1
 })
 
 await flushBatch()
@@ -96,16 +99,53 @@ for (const song of songs) {
   }
   const exists = existingSongIds.has(id)
   if (exists) {
-    updated += 1
+    songUpdated += 1
   } else {
-    created += 1
+    songCreated += 1
   }
   const payload = exists ? meta : { ...meta, sung, sungAt, sungBy }
 
   const ref = db.collection('songs').doc(id)
   batch.set(ref, payload, { merge: true })
   count += 1
-  total += 1
+  songTotal += 1
+
+  if (count === MAX_BATCH_SIZE) {
+    await flushBatch()
+  }
+}
+
+const seriesRecords = buildSeriesRecordsFromSongs(songs)
+const expectedSeriesIds = new Set(seriesRecords.map((series) => series.id))
+const seriesSnapshot = await db.collection('series').get()
+const existingSeriesIds = new Set(seriesSnapshot.docs.map((snapshotDoc) => snapshotDoc.id))
+
+seriesSnapshot.docs.forEach((snapshotDoc) => {
+  if (expectedSeriesIds.has(snapshotDoc.id)) {
+    return
+  }
+  batch.delete(snapshotDoc.ref)
+  count += 1
+  seriesDeleted += 1
+})
+
+await flushBatch()
+
+for (const series of seriesRecords) {
+  const { id, ...payload } = series
+  if (!id) {
+    continue
+  }
+
+  if (existingSeriesIds.has(id)) {
+    seriesUpdated += 1
+  } else {
+    seriesCreated += 1
+  }
+
+  const ref = db.collection('series').doc(id)
+  batch.set(ref, payload, { merge: true })
+  count += 1
 
   if (count === MAX_BATCH_SIZE) {
     await flushBatch()
@@ -116,10 +156,13 @@ await flushBatch()
 
 if (dryRun) {
   console.log(
-    `[dry-run] Firestore sync preview for ${projectId}: create=${created}, update=${updated}, delete=${deleted}, totalInput=${total}`,
+    `[dry-run] songs: create=${songCreated}, update=${songUpdated}, delete=${songDeleted}, totalInput=${songTotal}`,
+  )
+  console.log(
+    `[dry-run] series: create=${seriesCreated}, update=${seriesUpdated}, delete=${seriesDeleted}, totalInput=${seriesRecords.length}`,
   )
 } else {
   console.log(
-    `Uploaded ${total} song documents to Firestore project ${projectId} (created ${created}, updated ${updated}, deleted ${deleted})`,
+    `Synced Firestore project ${projectId}: songs(created ${songCreated}, updated ${songUpdated}, deleted ${songDeleted}), series(created ${seriesCreated}, updated ${seriesUpdated}, deleted ${seriesDeleted})`,
   )
 }
