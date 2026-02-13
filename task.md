@@ -22,7 +22,7 @@
 
 ## 技術スタック
 
-フロントエンド: Vite + React 18 + Tailwind CSS 3
+フロントエンド: Vite + React 19 + CSS Modules ではない素の CSS（`src/index.css`）
 バックエンド: Cloud Firestore
 ホスティング: Firebase Hosting
 
@@ -30,7 +30,7 @@
 ### 選定理由
 - **Vite**: 高速ビルド、現代的な開発体験
 - **React**: コンポーネント思考、豊富なエコシステム
-- **Tailwind CSS**: レスポンシブ自動対応、高速スタイリング
+- **素のCSS**: 依存を増やさずに運用できるシンプル構成
 - **Firestore**: リアルタイム同期、サーバーレス、無料枠が大きい
 
 ---
@@ -105,7 +105,7 @@ sentai-song-manager/
 ├── src/
 │   ├── main.jsx                 # エントリーポイント
 │   ├── App.jsx                  # メインコンポーネント
-│   ├── index.css                # Tailwind CSS
+│   ├── index.css                # アプリ全体スタイル
 │   ├── components/              # UIコンポーネント群
 │   ├── hooks/                   # カスタムフック
 │   ├── lib/                     # ライブラリ・初期化
@@ -207,15 +207,7 @@ service cloud.firestore {
 
 ## レスポンシブ設計
 
-### Tailwindブレークポイント
-
-sm: 640px   // スマホ横
-md: 768px   // タブレット
-lg: 1024px  // PC
-xl: 1280px  // 大画面
-
-
-### レイアウト方針
+### レイアウト方針（実装）
 
 **スマホ:**
 - 1カラム表示
@@ -252,7 +244,7 @@ xl: 1280px  // 大画面
 4. フィルタリング・検索実装
 
 ### Phase 4: スタイリング
-1. Tailwind CSS適用
+1. `src/index.css` でレスポンシブスタイル適用
 2. レスポンシブ対応
 3. アニメーション追加
 

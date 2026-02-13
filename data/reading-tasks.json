@@ -1,0 +1,771 @@
+{
+  "description": "Fill `proposed` with natural hiragana readings. Keep only hiragana/chouon/punctuation as needed.",
+  "items": [
+    {
+      "id": "series_3_op_1",
+      "seriesNumber": 3,
+      "seriesName": "バトルフィーバーJ",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "バトルフィーバーJ",
+          "current": "ばとるふぃーばーじゅ",
+          "proposed": "ばとるふぃーばーじぇい"
+        },
+        {
+          "field": "seriesNameReading",
+          "source": "バトルフィーバーJ",
+          "current": "ばとるふぃーばーじゅ",
+          "proposed": "ばとるふぃーばーじぇい"
+        },
+        {
+          "field": "artistReading",
+          "source": "MoJo、コロムビアゆりかご会、フィーリング・フリー",
+          "current": "もじょ、ころむびあゆりかごかい、ふぃーりんぐ・ふりー",
+          "proposed": "もじょ、ころむびあゆりかごかい、ふぃーりんぐ・ふりー"
+        }
+      ]
+    },
+    {
+      "id": "series_3_ed_1",
+      "seriesNumber": 3,
+      "seriesName": "バトルフィーバーJ",
+      "fields": [
+        {
+          "field": "seriesNameReading",
+          "source": "バトルフィーバーJ",
+          "current": "ばとるふぃーばーじゅ",
+          "proposed": "ばとるふぃーばーじぇい"
+        },
+        {
+          "field": "artistReading",
+          "source": "MoJo",
+          "current": "もじょ",
+          "proposed": "もじょ"
+        }
+      ]
+    },
+    {
+      "id": "series_6_op_1",
+      "seriesNumber": 6,
+      "seriesName": "大戦隊ゴーグルファイブ",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "大戦隊ゴーグルV",
+          "current": "だいせんたいごーぐるぶ",
+          "proposed": "だいせんたいごーぐるふぁいぶ"
+        },
+        {
+          "field": "artistReading",
+          "source": "MoJo、こおろぎ'73、ザ・チャープス",
+          "current": "もじょ、こおろぎ'73う、ざ・ちゃーぷす",
+          "proposed": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす"
+        }
+      ]
+    },
+    {
+      "id": "series_6_ed_1",
+      "seriesNumber": 6,
+      "seriesName": "大戦隊ゴーグルファイブ",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "MoJo、こおろぎ'73、ザ・チャープス",
+          "current": "もじょ、こおろぎ'73う、ざ・ちゃーぷす",
+          "proposed": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす"
+        }
+      ]
+    },
+    {
+      "id": "series_7_op_1",
+      "seriesNumber": 7,
+      "seriesName": "科学戦隊ダイナマン",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "MoJo、こおろぎ'73",
+          "current": "もじょ、こおろぎ'73う",
+          "proposed": "もじょ、こおろぎななじゅうさん"
+        }
+      ]
+    },
+    {
+      "id": "series_7_ed_1",
+      "seriesNumber": 7,
+      "seriesName": "科学戦隊ダイナマン",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "MoJo、こおろぎ'73",
+          "current": "もじょ、こおろぎ'73う",
+          "proposed": "もじょ、こおろぎななじゅうさん"
+        }
+      ]
+    },
+    {
+      "id": "series_9_op_1",
+      "seriesNumber": 9,
+      "seriesName": "電撃戦隊チェンジマン",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "KAGE",
+          "current": "かげ",
+          "proposed": "かげ"
+        }
+      ]
+    },
+    {
+      "id": "series_9_ed_1",
+      "seriesNumber": 9,
+      "seriesName": "電撃戦隊チェンジマン",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "NEVER STOPチェンジマン",
+          "current": "ねばあ すとぷちぇんじまん",
+          "proposed": "ねばー すとっぷ ちぇんじまん"
+        },
+        {
+          "field": "artistReading",
+          "source": "KAGE",
+          "current": "かげ",
+          "proposed": "かげ"
+        }
+      ]
+    },
+    {
+      "id": "series_13_ed_2",
+      "seriesNumber": 13,
+      "seriesName": "高速戦隊ターボレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "DANCEときめく心",
+          "current": "だんけときめくこころ",
+          "proposed": "だんすときめくこころ"
+        }
+      ]
+    },
+    {
+      "id": "series_17_op_1",
+      "seriesNumber": 17,
+      "seriesName": "五星戦隊ダイレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "NEW JACK拓郎",
+          "current": "ねう じゃっくたくろう",
+          "proposed": "にゅー じゃっくたくろう"
+        }
+      ]
+    },
+    {
+      "id": "series_17_ed_1",
+      "seriesNumber": 17,
+      "seriesName": "五星戦隊ダイレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "NEW JACK拓郎",
+          "current": "ねう じゃっくたくろう",
+          "proposed": "にゅー じゃっくたくろう"
+        }
+      ]
+    },
+    {
+      "id": "series_21_ed_2",
+      "seriesNumber": 21,
+      "seriesName": "電磁戦隊メガレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Bomb Dancing メガレンジャー",
+          "current": "ぼえむぶ だんきんぐ めがれんじゃー",
+          "proposed": "ぼむ だんしんぐ めがれんじゃー"
+        }
+      ]
+    },
+    {
+      "id": "series_24_op_1",
+      "seriesNumber": 24,
+      "seriesName": "未来戦隊タイムレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "JIKŪ 〜未来戦隊タイムレンジャー〜",
+          "current": "じく 〜みらいせんたいたいむれんじゃー〜",
+          "proposed": "じくう 〜みらいせんたいたいむれんじゃー〜"
+        }
+      ]
+    },
+    {
+      "id": "series_24_ed_1",
+      "seriesNumber": 24,
+      "seriesName": "未来戦隊タイムレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "NAT'S",
+          "current": "なつ うす",
+          "proposed": "なっつ"
+        }
+      ]
+    },
+    {
+      "id": "series_24_ed_2",
+      "seriesNumber": 24,
+      "seriesName": "未来戦隊タイムレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "ミラクル☆Xmas",
+          "current": "みらくる☆えっくすます",
+          "proposed": "みらくる☆くりすます"
+        },
+        {
+          "field": "artistReading",
+          "source": "T.R.Futures",
+          "current": "つ うる うふつれす",
+          "proposed": "てぃーあーる ふゅーちゃーず"
+        }
+      ]
+    },
+    {
+      "id": "series_24_ed_3",
+      "seriesNumber": 24,
+      "seriesName": "未来戦隊タイムレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "ETERNAL WIND",
+          "current": "えてあーるなあ うぃんづ",
+          "proposed": "えたーなる うぃんど"
+        }
+      ]
+    },
+    {
+      "id": "series_24_ed_5",
+      "seriesNumber": 24,
+      "seriesName": "未来戦隊タイムレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Don't Stop Your Story!",
+          "current": "どん うつ すとぷ よああ すとりゅ!",
+          "proposed": "どんと すとっぷ ゆあ すとーりー!"
+        },
+        {
+          "field": "artistReading",
+          "source": "T.R.Futures",
+          "current": "つ うる うふつれす",
+          "proposed": "てぃーあーる ふゅーちゃーず"
+        }
+      ]
+    },
+    {
+      "id": "series_25_ed_1",
+      "seriesNumber": 25,
+      "seriesName": "百獣戦隊ガオレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "Salia",
+          "current": "さりあ",
+          "proposed": "さりあ"
+        }
+      ]
+    },
+    {
+      "id": "series_27_ed_1",
+      "seriesNumber": 27,
+      "seriesName": "爆竜戦隊アバレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "We are the ONE 〜僕らはひとつ〜",
+          "current": "うぇ あれ せ おね 〜ぼくらはひとつ〜",
+          "proposed": "うぃー あー ざ わん 〜ぼくらはひとつ〜"
+        }
+      ]
+    },
+    {
+      "id": "series_28_ed_2",
+      "seriesNumber": 28,
+      "seriesName": "特捜戦隊デカレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "girls in trouble! DEKARANGER",
+          "current": "ぎあーるあーるす いん てぃーろうびーれ! でからんがあ",
+          "proposed": "がーるず いん とらぶる! でかれんじゃー"
+        },
+        {
+          "field": "artistReading",
+          "source": "ジャスミン&ウメコ with デカレンボーイズ",
+          "current": "じゃすみん&うめこ うぃす でかれんぼーいず",
+          "proposed": "じゃすみんあんどうめこ うぃず でかれんぼーいず"
+        }
+      ]
+    },
+    {
+      "id": "series_29_ed_1",
+      "seriesNumber": 29,
+      "seriesName": "魔法戦隊マジレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "Sister MAYO",
+          "current": "しえすたあ まよ",
+          "proposed": "しすたー まよ"
+        }
+      ]
+    },
+    {
+      "id": "series_30_op_1",
+      "seriesNumber": 30,
+      "seriesName": "轟轟戦隊ボウケンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "NoB",
+          "current": "のぶ",
+          "proposed": "のぶ"
+        }
+      ]
+    },
+    {
+      "id": "series_30_ed_1",
+      "seriesNumber": 30,
+      "seriesName": "轟轟戦隊ボウケンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "冒険者 ON THE ROAD",
+          "current": "ぼうけんしゃ おん せ ろあづ",
+          "proposed": "ぼうけんしゃ おん ざ ろーど"
+        }
+      ]
+    },
+    {
+      "id": "series_31_ed_3",
+      "seriesNumber": 31,
+      "seriesName": "獣拳戦隊ゲキレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Run",
+          "current": "るん",
+          "proposed": "らん"
+        }
+      ]
+    },
+    {
+      "id": "series_31_ed_4",
+      "seriesNumber": 31,
+      "seriesName": "獣拳戦隊ゲキレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Just Make It Out!",
+          "current": "じゅえすつ まけ いつ おうつ!",
+          "proposed": "じゃすと めいく いっと あうと!"
+        }
+      ]
+    },
+    {
+      "id": "series_31_ed_5",
+      "seriesNumber": 31,
+      "seriesName": "獣拳戦隊ゲキレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Wandering Wolf",
+          "current": "わんでりんぐ をあーるふ",
+          "proposed": "わんだりんぐ うるふ"
+        }
+      ]
+    },
+    {
+      "id": "series_32_ed_1",
+      "seriesNumber": 32,
+      "seriesName": "炎神戦隊ゴーオンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "炎神ファーストラップ -Type Normal-",
+          "current": "ほのおしんふぁーすとらっぷ -てぃーわいぺ のあーるまあ",
+          "proposed": "えんじんふぁーすとらっぷ -たいぷ のーまる-"
+        },
+        {
+          "field": "artistReading",
+          "source": "Project.R with 炎神キッズ",
+          "current": "ぴーろじぇしーつ うる うぃす ほのおしんきっず",
+          "proposed": "ぷろじぇくと あーる うぃず えんじんきっず"
+        }
+      ]
+    },
+    {
+      "id": "series_34_op_1",
+      "seriesNumber": 34,
+      "seriesName": "天装戦隊ゴセイジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "NoB",
+          "current": "のぶ",
+          "proposed": "のぶ"
+        }
+      ]
+    },
+    {
+      "id": "series_35_ed_1",
+      "seriesNumber": 35,
+      "seriesName": "海賊戦隊ゴーカイジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "Project.R",
+          "current": "ぴーろじぇしーつ うる",
+          "proposed": "ぷろじぇくと あーる"
+        }
+      ]
+    },
+    {
+      "id": "series_36_ed_2",
+      "seriesNumber": 36,
+      "seriesName": "特命戦隊ゴーバスターズ",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "謎の新ユニットSTA☆MEN",
+          "current": "なぞのしんゆにっとすた☆めん",
+          "proposed": "なぞのしんゆにっとすたーめん"
+        }
+      ]
+    },
+    {
+      "id": "series_37_op_1",
+      "seriesNumber": 37,
+      "seriesName": "獣電戦隊キョウリュウジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "VAMOLA! キョウリュウジャー",
+          "current": "ばもら! きょうりゅうじゃー",
+          "proposed": "ばもら! きょうりゅうじゃー"
+        }
+      ]
+    },
+    {
+      "id": "series_38_ed_1",
+      "seriesNumber": 38,
+      "seriesName": "烈車戦隊トッキュウジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "Project.R",
+          "current": "ぴーろじぇしーつ うる",
+          "proposed": "ぷろじぇくと あーる"
+        }
+      ]
+    },
+    {
+      "id": "series_41_op_1",
+      "seriesNumber": 41,
+      "seriesName": "宇宙戦隊キュウレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "LUCKYSTAR",
+          "current": "るけーけーわいえすたあ",
+          "proposed": "らっきーすたー"
+        }
+      ]
+    },
+    {
+      "id": "series_42_op_1",
+      "seriesNumber": 42,
+      "seriesName": "快盗戦隊ルパンレンジャーVS警察戦隊パトレンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "ルパンレンジャーVSパトレンジャー",
+          "current": "るぱんれんじゃーびーすぱとれんじゃー",
+          "proposed": "るぱんれんじゃーぶいえすぱとれんじゃー"
+        },
+        {
+          "field": "seriesNameReading",
+          "source": "快盗戦隊ルパンレンジャーVS警察戦隊パトレンジャー",
+          "current": "かいとうせんたいるぱんれんじゃーびーすけいさつせんたいぱとれんじゃー",
+          "proposed": "かいとうせんたいるぱんれんじゃーぶいえすけいさつせんたいぱとれんじゃー"
+        },
+        {
+          "field": "artistReading",
+          "source": "Project.R",
+          "current": "ぴーろじぇしーつ うる",
+          "proposed": "ぷろじぇくと あーる"
+        }
+      ]
+    },
+    {
+      "id": "series_43_ed_1",
+      "seriesNumber": 43,
+      "seriesName": "騎士竜戦隊リュウソウジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "Sister MAYO",
+          "current": "しえすたあ まよ",
+          "proposed": "しすたー まよ"
+        }
+      ]
+    },
+    {
+      "id": "series_44_ed_5",
+      "seriesNumber": 44,
+      "seriesName": "魔進戦隊キラメイジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "弾丸Shooting Star",
+          "current": "だんがんしょおちんぐ すたあ",
+          "proposed": "だんがんしゅーてぃんぐ すたー"
+        }
+      ]
+    },
+    {
+      "id": "series_44_ed_6",
+      "seriesNumber": 44,
+      "seriesName": "魔進戦隊キラメイジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Winding Road",
+          "current": "うぃんぢんぐ ろあづ",
+          "proposed": "わいんでぃんぐ ろーど"
+        }
+      ]
+    },
+    {
+      "id": "series_44_ed_7",
+      "seriesNumber": 44,
+      "seriesName": "魔進戦隊キラメイジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Perfect Blue",
+          "current": "ぺあーるふぇしーつ びーるえ",
+          "proposed": "ぱーふぇくと ぶるー"
+        }
+      ]
+    },
+    {
+      "id": "series_46_op_1",
+      "seriesNumber": 46,
+      "seriesName": "暴太郎戦隊ドンブラザーズ",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "MORISAKI WIN",
+          "current": "もりさき うぃん",
+          "proposed": "もりさき うぃん"
+        }
+      ]
+    },
+    {
+      "id": "series_46_ed_1",
+      "seriesNumber": 46,
+      "seriesName": "暴太郎戦隊ドンブラザーズ",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Don't Boo! ドンブラザーズ",
+          "current": "どん うつ ぼお! どんぶらざーず",
+          "proposed": "どんと ぶー! どんぶらざーず"
+        },
+        {
+          "field": "artistReading",
+          "source": "MORISAKI WIN",
+          "current": "もりさき うぃん",
+          "proposed": "もりさき うぃん"
+        }
+      ]
+    },
+    {
+      "id": "series_47_ed_1",
+      "seriesNumber": 47,
+      "seriesName": "王様戦隊キングオージャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Pride and Brave",
+          "current": "ぴーりで あんづ びーらべ",
+          "proposed": "ぷらいど あんど ぶれいぶ"
+        }
+      ]
+    },
+    {
+      "id": "series_48_ed_1",
+      "seriesNumber": 48,
+      "seriesName": "爆上戦隊ブンブンジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "コツコツ-PON-PON",
+          "current": "こつこつ-ぽん うぽん",
+          "proposed": "こつこつ ぽんぽん"
+        }
+      ]
+    },
+    {
+      "id": "series_49_op_1",
+      "seriesNumber": 49,
+      "seriesName": "ナンバーワン戦隊ゴジュウジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "WINNER!ゴジュウジャー!",
+          "current": "うぃんなあ!ごじゅうじゃー!",
+          "proposed": "うぃなー!ごじゅうじゃー!"
+        },
+        {
+          "field": "artistReading",
+          "source": "Wienners",
+          "current": "うぃえんねあーるす",
+          "proposed": "うぃーなーず"
+        }
+      ]
+    },
+    {
+      "id": "series_49_ed_1",
+      "seriesNumber": 49,
+      "seriesName": "ナンバーワン戦隊ゴジュウジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "YOU BE ONE WINNER",
+          "current": "よう べ おね うぃんなあ",
+          "proposed": "ゆー びー わん うぃなー"
+        }
+      ]
+    },
+    {
+      "id": "series_49_ed_2",
+      "seriesNumber": 49,
+      "seriesName": "ナンバーワン戦隊ゴジュウジャー",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "ビリビリBe-lie-ving",
+          "current": "びりびりべ うりえ うびんぐ",
+          "proposed": "びりびり びーらいびんぐ"
+        }
+      ]
+    },
+    {
+      "id": "series_50_ed_1",
+      "seriesNumber": 50,
+      "seriesName": "百獣戦隊ガオレンジャーVSスーパー戦隊",
+      "fields": [
+        {
+          "field": "seriesNameReading",
+          "source": "百獣戦隊ガオレンジャーVSスーパー戦隊",
+          "current": "ひゃくじゅうせんたいがおれんじゃーびーすすーぱーせんたい",
+          "proposed": "ひゃくじゅうせんたいがおれんじゃーぶいえすすーぱーせんたい"
+        }
+      ]
+    },
+    {
+      "id": "series_51_ed_1",
+      "seriesNumber": 51,
+      "seriesName": "轟轟戦隊ボウケンジャーVSスーパー戦隊",
+      "fields": [
+        {
+          "field": "seriesNameReading",
+          "source": "轟轟戦隊ボウケンジャーVSスーパー戦隊",
+          "current": "ごうごうせんたいぼうけんじゃーびーすすーぱーせんたい",
+          "proposed": "ごうごうせんたいぼうけんじゃーぶいえすすーぱーせんたい"
+        },
+        {
+          "field": "artistReading",
+          "source": "串田アキラ、宮内タカユキ、MoJo",
+          "current": "くしだあきら、みやうちたかゆき、もじょ",
+          "proposed": "くしだあきら、みやうちたかゆき、もじょ"
+        }
+      ]
+    },
+    {
+      "id": "series_52_op_1",
+      "seriesNumber": 52,
+      "seriesName": "スーパー戦隊VSシリーズ劇場",
+      "fields": [
+        {
+          "field": "seriesNameReading",
+          "source": "スーパー戦隊VSシリーズ劇場",
+          "current": "すーぱーせんたいびーすしりーずげきじょう",
+          "proposed": "すーぱーせんたいぶいえすしりーずげきじょう"
+        }
+      ]
+    },
+    {
+      "id": "series_53_op_1",
+      "seriesNumber": 53,
+      "seriesName": "４週連続スペシャル スーパー戦隊最強バトル!!",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "最高最強 SUPER STARS!",
+          "current": "さいこうさいきょう すぱあ すたあーるす!",
+          "proposed": "さいこうさいきょう すーぱー すたーず!"
+        },
+        {
+          "field": "artistReading",
+          "source": "NoB",
+          "current": "のぶ",
+          "proposed": "のぶ"
+        }
+      ]
+    },
+    {
+      "id": "series_54_op_1",
+      "seriesNumber": 54,
+      "seriesName": "非公認戦隊アキバレンジャー",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "桃井はるこ feat. 山形ユキオ",
+          "current": "ももいはるこ ふぇあつ  やまがたゆきお",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお"
+        }
+      ]
+    },
+    {
+      "id": "series_55_op_1",
+      "seriesNumber": 55,
+      "seriesName": "非公認戦隊アキバレンジャー　シーズン痛",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "桃井はるこfeat.山形ユキオあんどMoJo",
+          "current": "ももいはるこふぇあつ やまがたゆきおあんどもじょ",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ"
+        }
+      ]
+    },
+    {
+      "id": "series_55_ed_1",
+      "seriesNumber": 55,
+      "seriesName": "非公認戦隊アキバレンジャー　シーズン痛",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "桃井はるこfeat.山形ユキオあんどMoJo",
+          "current": "ももいはるこふぇあつ やまがたゆきおあんどもじょ",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ"
+        }
+      ]
+    }
+  ]
+}

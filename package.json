@@ -3,13 +3,28 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
+    "scripts": {
+      "dev": "vite",
+      "start": "npm run local:start",
+      "start:fresh": "npm run local:start:fresh",
+      "release": "npm run deploy:all",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "data:convert": "node scripts/convert-csv.mjs",
-    "data:convert:json": "node scripts/convert-csv.mjs data/songs.example.csv data/songs.json",
+    "data:enrich:readings": "node scripts/enrich-readings.mjs data/songs.json data/songs.json",
+    "data:readings:apply:if-exists": "if [ -f data/reading-tasks.json ]; then npm run data:readings:apply; else echo \"skip: data/reading-tasks.json not found\"; fi",
+    "data:convert:official": "node scripts/convert-csv.mjs data/戦隊カラオケリスト.csv data/songs.json && npm run data:enrich:readings && npm run data:readings:apply:if-exists",
+    "data:readings:extract": "node scripts/extract-reading-tasks.mjs data/songs.json data/reading-tasks.json data/reading-tasks.prompt.txt",
+    "data:readings:apply": "node scripts/apply-reading-tasks.mjs data/songs.json data/reading-tasks.json data/songs.json",
+    "data:check": "node scripts/check-data.mjs data/songs.json",
+    "check:all": "npm run lint && npm test && npm run build && npm run data:check",
+    "deploy:data": "npm run data:convert:official && npm run data:check && npm run firestore:seed",
+    "deploy:app": "npm run build && firebase deploy --only hosting,firestore:rules",
+    "deploy:all": "npm run check:all && npm run deploy:data && npm run deploy:app",
+    "local:prepare": "npm run data:convert:official && npm run data:check && npm run firestore:seed",
+    "local:start": "npm run dev -- --host",
+    "local:start:fresh": "npm run local:prepare && npm run dev -- --host",
     "firebase:config:to-env": "node scripts/firebase-config-to-env.mjs",
     "firestore:seed": "node scripts/upload-to-firestore.mjs data/songs.json",
     "test": "node --test"
@@ -17,8 +32,11 @@
   "dependencies": {
     "firebase": "^12.9.0",
     "firebase-admin": "^13.5.0",
+    "fuse.js": "^7.1.0",
+    "kuromoji": "^0.1.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "wanakana": "^5.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
