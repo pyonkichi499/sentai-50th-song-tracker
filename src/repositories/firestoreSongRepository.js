@@ -1,5 +1,5 @@
 import { signInAnonymously } from 'firebase/auth'
-import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore'
+import { collection, doc, onSnapshot, updateDoc, writeBatch } from 'firebase/firestore'
 import { initializeFirebaseClient } from '../lib/firebase'
 
 export function createFirestoreSongRepository() {
@@ -28,6 +28,14 @@ export function createFirestoreSongRepository() {
 
     const credential = await signInAnonymously(auth)
     return credential.user
+  }
+
+  const buildNextPatch = (_song, sung, userId) => {
+    return {
+      sung,
+      sungAt: sung ? new Date().toISOString() : null,
+      sungBy: sung ? [userId] : [],
+    }
   }
 
   const startSnapshot = async () => {
@@ -89,11 +97,23 @@ export function createFirestoreSongRepository() {
       const nextSung = !target.sung
       const songRef = doc(db, 'songs', songId)
 
-      await updateDoc(songRef, {
-        sung: nextSung,
-        sungAt: nextSung ? new Date().toISOString() : null,
-        sungBy: nextSung ? [user.uid] : [],
+      await updateDoc(songRef, buildNextPatch(target, nextSung, user.uid))
+    },
+
+    async setSongsSung(songIds, sung) {
+      const user = await ensureSignedIn()
+      const targetIds = new Set(songIds)
+      const targets = songs.filter((song) => targetIds.has(song.id))
+      if (targets.length === 0) {
+        return
+      }
+
+      const batch = writeBatch(db)
+      targets.forEach((target) => {
+        const songRef = doc(db, 'songs', target.id)
+        batch.update(songRef, buildNextPatch(target, sung, user.uid))
       })
+      await batch.commit()
     },
 
     dispose() {

@@ -10,6 +10,15 @@ function toPersistedArray(value) {
   return Array.isArray(value) ? value : null
 }
 
+function buildNextSong(song, { sung, actor, now }) {
+  return {
+    ...song,
+    sung,
+    sungAt: sung ? now() : null,
+    sungBy: sung ? [actor] : [],
+  }
+}
+
 export function createSongRepository(options) {
   const {
     defaultSongs,
@@ -52,13 +61,21 @@ export function createSongRepository(options) {
           return song
         }
 
-        const nextSung = !song.sung
-        return {
-          ...song,
-          sung: nextSung,
-          sungAt: nextSung ? now() : null,
-          sungBy: nextSung ? [actor] : [],
+        return buildNextSong(song, { sung: !song.sung, actor, now })
+      })
+
+      savePersistedSongs(songs)
+      publishExternal({ source: clientId, songs })
+      emit()
+    },
+
+    setSongsSung(songIds, sung) {
+      const targetIds = new Set(songIds)
+      songs = songs.map((song) => {
+        if (!targetIds.has(song.id)) {
+          return song
         }
+        return buildNextSong(song, { sung, actor, now })
       })
 
       savePersistedSongs(songs)

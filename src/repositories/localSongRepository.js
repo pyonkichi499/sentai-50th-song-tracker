@@ -1,4 +1,3 @@
-import { sampleSongs } from '../constants/sampleSongs'
 import { createSongRepository } from './createSongRepository'
 
 const STORAGE_KEY = 'sentai-song-tracker:v1'
@@ -59,7 +58,7 @@ export function createLocalSongRepository() {
   }
 
   const repository = createSongRepository({
-    defaultSongs: sampleSongs,
+    defaultSongs: [],
     loadPersistedSongs,
     savePersistedSongs: (songs) => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(songs))

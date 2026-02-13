@@ -33,5 +33,25 @@ export function useSongStore(repository) {
     }
   }
 
-  return { songs, toggleSong, status, errorMessage }
+  const setSongsSung = async (songIds, sung) => {
+    try {
+      if (typeof repository.setSongsSung === 'function') {
+        await repository.setSongsSung(songIds, sung)
+        return
+      }
+
+      const targetIds = new Set(songIds)
+      const targets = songs.filter((song) => targetIds.has(song.id))
+      for (const song of targets) {
+        if (song.sung !== sung) {
+          await repository.toggleSong(song.id)
+        }
+      }
+    } catch (error) {
+      setErrorMessage(error?.message || '一括更新に失敗しました。')
+      console.error('[song-store] bulk update failed:', error)
+    }
+  }
+
+  return { songs, toggleSong, setSongsSung, status, errorMessage }
 }

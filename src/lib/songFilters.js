@@ -1,14 +1,34 @@
+import Fuse from 'fuse.js'
+
 function normalizeText(value) {
-  return String(value ?? '').toLowerCase().trim()
+  return toHiragana(String(value ?? '').normalize('NFKC')).toLowerCase().trim()
 }
 
-function sortSongs(a, b) {
+function toHiragana(text) {
+  return text.replace(/[\u30a1-\u30f6]/g, (char) =>
+    String.fromCharCode(char.charCodeAt(0) - 0x60),
+  )
+}
+
+function normalizeLooseText(value) {
+  return normalizeText(value).replace(
+    /[\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~。、，．・！？【】「」『』（）ー〜～]/g,
+    '',
+  )
+}
+
+function sortBySeries(a, b) {
   if (a.seriesNumber !== b.seriesNumber) {
     return a.seriesNumber - b.seriesNumber
   }
 
   if (a.songType !== b.songType) {
-    return a.songType.localeCompare(b.songType)
+    const songTypeOrder = { OP: 0, ED: 1 }
+    const aOrder = songTypeOrder[a.songType] ?? 99
+    const bOrder = songTypeOrder[b.songType] ?? 99
+    if (aOrder !== bOrder) {
+      return aOrder - bOrder
+    }
   }
 
   if (a.songNumber !== b.songNumber) {
@@ -18,10 +38,84 @@ function sortSongs(a, b) {
   return a.songTitle.localeCompare(b.songTitle, 'ja')
 }
 
-export function filterAndSortSongs({ songs, filter, typeFilter, searchText }) {
-  const query = normalizeText(searchText)
+function sortByRecentUpdate(a, b) {
+  const aTime = Date.parse(a.sungAt || '')
+  const bTime = Date.parse(b.sungAt || '')
+  const safeATime = Number.isNaN(aTime) ? -1 : aTime
+  const safeBTime = Number.isNaN(bTime) ? -1 : bTime
 
-  return songs
+  if (safeATime !== safeBTime) {
+    return safeBTime - safeATime
+  }
+
+  return sortBySeries(a, b)
+}
+
+function fuzzySearchSongs(songs, query) {
+  const fuse = new Fuse(songs, {
+    includeScore: true,
+    threshold: 0.35,
+    ignoreLocation: true,
+    minMatchCharLength: 2,
+    keys: [
+      { name: 'songTitle', weight: 0.45 },
+      { name: 'songTitleReading', weight: 0.35 },
+      { name: 'seriesName', weight: 0.3 },
+      { name: 'seriesNameReading', weight: 0.2 },
+      { name: 'artist', weight: 0.2 },
+      { name: 'artistReading', weight: 0.1 },
+      { name: 'variant', weight: 0.05 },
+      { name: '_searchLoose', weight: 0.35 },
+    ],
+    getFn: (song, path) => {
+      if (path === '_searchLoose') {
+        return [
+          song.seriesName,
+          song.seriesNameReading,
+          song.songTitle,
+          song.songTitleReading,
+          song.songType,
+          song.artist,
+          song.artistReading,
+          song.variant,
+          song.year,
+        ]
+          .map(normalizeText)
+          .map(normalizeLooseText)
+          .join(' ')
+      }
+      return normalizeText(song[path])
+    },
+  })
+
+  return fuse
+    .search(query)
+    .filter((entry) => (entry.score ?? 1) <= 0.3)
+    .map((entry) => entry.item)
+}
+
+function matchesQuery(song, query) {
+  const searchable = [
+    song.seriesName,
+    song.seriesNameReading,
+    song.songTitle,
+    song.songTitleReading,
+    song.songType,
+    song.artist,
+    song.artistReading,
+    song.variant,
+    song.year,
+  ]
+    .map(normalizeText)
+    .join(' ')
+  return searchable.includes(query)
+}
+
+export function filterAndSortSongs({ songs, filter, typeFilter, searchText, sortMode = 'series' }) {
+  const query = normalizeText(searchText)
+  const looseQuery = normalizeLooseText(searchText)
+
+  const filtered = songs
     .filter((song) => {
       if (filter === 'sung') {
         return song.sung
@@ -32,25 +126,14 @@ export function filterAndSortSongs({ songs, filter, typeFilter, searchText }) {
       return true
     })
     .filter((song) => (typeFilter === 'all' ? true : song.songType === typeFilter))
-    .filter((song) => {
-      if (!query) {
-        return true
-      }
 
-      const searchable = [
-        song.seriesName,
-        song.songTitle,
-        song.songType,
-        song.artist,
-        song.variant,
-        song.year,
-      ]
-        .map(normalizeText)
-        .join(' ')
+  let searched = filtered
+  if (query.length > 0) {
+    const strictMatches = filtered.filter((song) => matchesQuery(song, query))
+    searched = strictMatches.length > 0 ? strictMatches : fuzzySearchSongs(filtered, looseQuery || query)
+  }
 
-      return searchable.includes(query)
-    })
-    .toSorted(sortSongs)
+  return searched.toSorted(sortMode === 'updated' ? sortByRecentUpdate : sortBySeries)
 }
 
 export function countSung(songs) {

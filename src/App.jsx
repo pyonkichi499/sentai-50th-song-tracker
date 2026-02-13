@@ -11,15 +11,16 @@ import { getSongRepository } from './repositories/songRepositoryFactory'
 
 function App() {
   const repository = useMemo(() => getSongRepository(), [])
-  const { songs, toggleSong, status, errorMessage } = useSongStore(repository)
+  const { songs, toggleSong, setSongsSung, status, errorMessage } = useSongStore(repository)
   const [filter, setFilter] = useState('all')
   const [typeFilter, setTypeFilter] = useState('all')
   const [searchText, setSearchText] = useState('')
   const [viewMode, setViewMode] = useState('grouped')
+  const [sortMode, setSortMode] = useState('series')
 
   const filteredSongs = useMemo(() => {
-    return filterAndSortSongs({ songs, filter, typeFilter, searchText })
-  }, [filter, searchText, songs, typeFilter])
+    return filterAndSortSongs({ songs, filter, typeFilter, searchText, sortMode })
+  }, [filter, searchText, songs, sortMode, typeFilter])
 
   const total = songs.length
   const sung = countSung(songs)
@@ -27,6 +28,7 @@ function App() {
   const edSongs = songs.filter((song) => song.songType === 'ED')
   const filterLabel = filter === 'all' ? 'なし' : filter === 'sung' ? '歌った' : '未歌唱'
   const typeFilterLabel = typeFilter === 'all' ? 'なし' : typeFilter
+  const sortModeLabel = sortMode === 'updated' ? '更新順' : '戦隊順'
 
   return (
     <main className="app-shell">
@@ -53,11 +55,13 @@ function App() {
         setTypeFilter={setTypeFilter}
         viewMode={viewMode}
         setViewMode={setViewMode}
+        sortMode={sortMode}
+        setSortMode={setSortMode}
       />
       <section className="panel">
         <p className="search-label">
           表示件数: {filteredSongs.length} / {total}（状態フィルタ: {filterLabel} / 種類フィルタ:{' '}
-          {typeFilterLabel}）
+          {typeFilterLabel} / 並び順: {sortModeLabel}）
         </p>
       </section>
       <SearchBox searchText={searchText} setSearchText={setSearchText} />
@@ -70,7 +74,12 @@ function App() {
         edSung={countSung(edSongs)}
         seriesCount={uniqueSeriesCount(songs)}
       />
-      <SongList songs={filteredSongs} viewMode={viewMode} onToggle={toggleSong} />
+      <SongList
+        songs={filteredSongs}
+        viewMode={viewMode}
+        onToggle={toggleSong}
+        onSetGroupSung={setSongsSung}
+      />
     </main>
   )
 }

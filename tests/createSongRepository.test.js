@@ -118,6 +118,18 @@ test('同じ曲を2回toggleすると未歌唱に戻る', () => {
   assert.deepEqual(persisted[0].sungBy, [])
 })
 
+test('setSongsSungで複数曲を一括更新できる', () => {
+  const { repository, getPersisted } = setup()
+
+  repository.setSongsSung(['a_op_1', 'a_ed_1'], true)
+
+  const persisted = getPersisted()
+  assert.equal(persisted[0].sung, true)
+  assert.equal(persisted[1].sung, true)
+  assert.deepEqual(persisted[0].sungBy, ['local-user'])
+  assert.deepEqual(persisted[1].sungBy, ['local-user'])
+})
+
 test('外部更新メッセージを受信したら購読者へ通知する', () => {
   const { repository, emitExternal } = setup()
   let received = null

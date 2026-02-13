@@ -22,7 +22,7 @@ function groupSongs(songs) {
   return Array.from(grouped.values())
 }
 
-export function SongList({ songs, viewMode, onToggle }) {
+export function SongList({ songs, viewMode, onToggle, onSetGroupSung }) {
   if (songs.length === 0) {
     return (
       <section className="panel">
@@ -38,10 +38,36 @@ export function SongList({ songs, viewMode, onToggle }) {
       <section className="group-list">
         {groups.map((group) => (
           <article key={`${group.seriesNumber}:${group.seriesName}`} className="panel">
-            <h3>
-              #{group.seriesNumber} {group.seriesName}
-              {group.year ? ` (${group.year})` : ''}
-            </h3>
+            <div className="group-head">
+              <h3>
+                #{group.seriesNumber} {group.seriesName}
+                {group.year ? ` (${group.year})` : ''}
+              </h3>
+              <div className="group-actions">
+                <button
+                  type="button"
+                  onClick={() =>
+                    onSetGroupSung(
+                      group.songs.map((song) => song.id),
+                      true,
+                    )
+                  }
+                >
+                  全曲歌唱
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    onSetGroupSung(
+                      group.songs.map((song) => song.id),
+                      false,
+                    )
+                  }
+                >
+                  未歌唱に戻す
+                </button>
+              </div>
+            </div>
             <ul>
               {group.songs.map((song) => (
                 <SongItem key={song.id} song={song} onToggle={onToggle} />

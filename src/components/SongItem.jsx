@@ -17,6 +17,12 @@ function formatDate(iso) {
 }
 
 export function SongItem({ song, onToggle }) {
+  const normalizedVariant = String(song.variant ?? '')
+    .normalize('NFKC')
+    .replace(/\s+/g, '')
+    .toUpperCase()
+  const isRedundantVariant = normalizedVariant === `${song.songType}${song.songNumber}`
+
   return (
     <li className={`song-item ${song.sung ? 'is-sung' : ''}`}>
       <label>
@@ -26,7 +32,7 @@ export function SongItem({ song, onToggle }) {
           <p className="song-subline">
             {song.songType} #{song.songNumber}
             {song.artist ? ` / ${song.artist}` : ''}
-            {song.variant ? ` / ${song.variant}` : ''}
+            {song.variant && !isRedundantVariant ? ` / ${song.variant}` : ''}
           </p>
           <p className="song-subline">最終更新: {formatDate(song.sungAt)}</p>
         </div>

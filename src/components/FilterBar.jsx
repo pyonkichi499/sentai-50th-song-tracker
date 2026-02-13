@@ -13,6 +13,11 @@ const VIEW_MODES = [
   { key: 'grouped', label: '戦隊別' },
 ]
 
+const SORT_MODES = [
+  { key: 'series', label: '戦隊順' },
+  { key: 'updated', label: '更新順' },
+]
+
 function Segment({ title, items, value, onChange, canToggleOff = false }) {
   return (
     <div className="segment">
@@ -23,6 +28,7 @@ function Segment({ title, items, value, onChange, canToggleOff = false }) {
             key={item.key}
             type="button"
             className={value === item.key ? 'active' : ''}
+            aria-pressed={value === item.key}
             onClick={() => onChange(value === item.key && canToggleOff ? 'all' : item.key)}
           >
             {item.label}
@@ -33,7 +39,16 @@ function Segment({ title, items, value, onChange, canToggleOff = false }) {
   )
 }
 
-export function FilterBar({ filter, setFilter, typeFilter, setTypeFilter, viewMode, setViewMode }) {
+export function FilterBar({
+  filter,
+  setFilter,
+  typeFilter,
+  setTypeFilter,
+  viewMode,
+  setViewMode,
+  sortMode,
+  setSortMode,
+}) {
   return (
     <section className="panel filter-grid">
       <p className="search-label">フィルタ</p>
@@ -52,6 +67,7 @@ export function FilterBar({ filter, setFilter, typeFilter, setTypeFilter, viewMo
         canToggleOff
       />
       <Segment title="表示モード" items={VIEW_MODES} value={viewMode} onChange={setViewMode} />
+      <Segment title="並び順" items={SORT_MODES} value={sortMode} onChange={setSortMode} />
     </section>
   )
 }
