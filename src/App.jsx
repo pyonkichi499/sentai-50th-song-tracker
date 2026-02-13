@@ -32,6 +32,7 @@ function App() {
 
   const total = songs.length
   const sung = countSung(songs)
+  const filteredSung = countSung(filteredSongs)
   const opSongs = songs.filter((song) => song.songType === 'OP')
   const edSongs = songs.filter((song) => song.songType === 'ED')
   const filterLabel = statusFilterLabel(filter)
@@ -69,8 +70,8 @@ function App() {
       />
       <section className="panel">
         <p className="search-label">
-          表示件数: {filteredSongs.length} / {total}（状態フィルタ: {filterLabel} / 種類フィルタ:{' '}
-          {typeFilterText} / 時代区分: {eraFilterLabel} / 並び順: {sortModeText}）
+          表示中（歌唱/曲数）: {filteredSung}/{filteredSongs.length}（状態フィルタ: {filterLabel} /
+          種類フィルタ: {typeFilterText} / 時代区分: {eraFilterLabel} / 並び順: {sortModeText}）
         </p>
       </section>
       <StatsPanel
