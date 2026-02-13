@@ -1,0 +1,292 @@
+:root {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #1f2a37;
+  background: #ffe2bf;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #1f2a37;
+  background: #ffe2bf;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  display: grid;
+  gap: 12px;
+  min-height: 100vh;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+  padding: 14px;
+}
+
+.status-panel p {
+  color: #334155;
+  font-weight: 600;
+}
+
+.error-panel {
+  border: 2px solid #b91c1c;
+  background: #fee2e2;
+}
+
+.error-title {
+  color: #7f1d1d;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.error-message {
+  margin-top: 6px;
+  color: #991b1b;
+  font-size: 0.92rem;
+  word-break: break-word;
+}
+
+.error-help {
+  margin-top: 6px;
+  color: #7f1d1d;
+  font-size: 0.84rem;
+}
+
+.hero {
+  background: linear-gradient(130deg, rgba(249, 115, 22, 0.18), rgba(250, 204, 21, 0.18));
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.hero h1 {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  margin-top: 2px;
+}
+
+.subtext {
+  margin-top: 6px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.notice {
+  margin-top: 10px;
+  padding: 14px 16px;
+  min-height: 0;
+  border-radius: 10px;
+  border: 2px solid #991b1b;
+  background: #fecaca;
+  color: #7f1d1d;
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.progress-panel {
+  display: grid;
+  gap: 10px;
+}
+
+.progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.progress-head h2 {
+  font-size: 1rem;
+}
+
+.progress-track {
+  height: 12px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  transition: width 0.25s ease;
+}
+
+.filter-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.segment {
+  display: grid;
+  gap: 6px;
+}
+
+.segment span {
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 700;
+}
+
+.segment div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.segment button {
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px 10px;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.segment button.active {
+  background: #fb923c;
+  color: #fff;
+  border-color: #ea580c;
+  font-weight: 700;
+}
+
+.search-label {
+  display: block;
+  font-size: 0.82rem;
+  color: #475569;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+input[type='search'] {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stat-card {
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+  display: grid;
+  gap: 2px;
+}
+
+.stat-card span {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.stat-card strong {
+  font-size: 1.06rem;
+}
+
+.group-list {
+  display: grid;
+  gap: 12px;
+}
+
+.song-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-item label {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 10px 0;
+}
+
+.song-item input[type='checkbox'] {
+  margin-top: 4px;
+}
+
+.song-title {
+  font-weight: 700;
+}
+
+.song-subline {
+  color: #475569;
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+
+.is-sung .song-title {
+  color: #166534;
+  text-decoration: line-through;
+}
+
+.empty {
+  text-align: center;
+  color: #475569;
+  padding: 18px;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    padding: 26px 20px 46px;
+    gap: 14px;
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
