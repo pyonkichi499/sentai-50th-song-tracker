@@ -7,7 +7,9 @@ import { songsFromCsvFile } from './lib/song-data.mjs'
 
 const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS
 const projectId = process.env.FIREBASE_PROJECT_ID
-const dataPath = process.argv[2] || 'data/戦隊カラオケリスト.csv'
+const args = process.argv.slice(2)
+const dryRun = args.includes('--dry-run')
+const dataPath = args.find((arg) => !arg.startsWith('-')) || 'data/戦隊カラオケリスト.csv'
 
 if (!projectId) {
   console.error('Set FIREBASE_PROJECT_ID')
@@ -55,10 +57,17 @@ let batch = db.batch()
 let count = 0
 let total = 0
 let deleted = 0
+let created = 0
+let updated = 0
 const MAX_BATCH_SIZE = 400
 
 const flushBatch = async () => {
   if (count === 0) {
+    return
+  }
+  if (dryRun) {
+    batch = db.batch()
+    count = 0
     return
   }
   await batch.commit()
@@ -85,7 +94,13 @@ for (const song of songs) {
   if (!id) {
     continue
   }
-  const payload = existingSongIds.has(id) ? meta : { ...meta, sung, sungAt, sungBy }
+  const exists = existingSongIds.has(id)
+  if (exists) {
+    updated += 1
+  } else {
+    created += 1
+  }
+  const payload = exists ? meta : { ...meta, sung, sungAt, sungBy }
 
   const ref = db.collection('songs').doc(id)
   batch.set(ref, payload, { merge: true })
@@ -99,4 +114,12 @@ for (const song of songs) {
 
 await flushBatch()
 
-console.log(`Uploaded ${total} song documents to Firestore project ${projectId} (deleted ${deleted})`)
+if (dryRun) {
+  console.log(
+    `[dry-run] Firestore sync preview for ${projectId}: create=${created}, update=${updated}, delete=${deleted}, totalInput=${total}`,
+  )
+} else {
+  console.log(
+    `Uploaded ${total} song documents to Firestore project ${projectId} (created ${created}, updated ${updated}, deleted ${deleted})`,
+  )
+}

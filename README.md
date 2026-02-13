@@ -14,7 +14,6 @@
 ## 主な機能
 - 曲の歌唱チェック（リアルタイム同期）
 - 戦隊別グループ表示 / 一覧表示
-- 戦隊単位の一括チェック（全曲歌唱・未歌唱へ戻す）
 - フィルタ（歌唱状態 / OP・ED / 検索）
 - 並び順切り替え（戦隊順 / 更新順）
 
@@ -81,10 +80,14 @@ export FIREBASE_PROJECT_ID=<your-project-id>
 
 # Firestore に投入（data/songs.json を読み込み）
 npm run firestore:seed
+
+# 差分確認のみ（書き込みなし）
+npm run firestore:seed:dry-run
 ```
 
 `firestore:seed` は同期モードです。原本データに存在しない `songs` ドキュメントは削除されます。
 既存曲の `sung / sungAt / sungBy` は保持され、新規曲のみ初期値で作成されます。
+`firestore:seed:dry-run` は作成/更新/削除件数だけ表示し、Firestoreは更新しません。
 
 ### 読み補正フロー（任意）
 1. `npm run data:readings:extract`

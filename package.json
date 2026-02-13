@@ -27,6 +27,7 @@
     "local:start:fresh": "npm run local:prepare && npm run dev -- --host",
     "firebase:config:to-env": "node scripts/firebase-config-to-env.mjs",
     "firestore:seed": "node scripts/upload-to-firestore.mjs data/songs.json",
+    "firestore:seed:dry-run": "node scripts/upload-to-firestore.mjs data/songs.json --dry-run",
     "test": "node --test"
   },
   "dependencies": {

@@ -11,7 +11,7 @@ import { getSongRepository } from './repositories/songRepositoryFactory'
 
 function App() {
   const repository = useMemo(() => getSongRepository(), [])
-  const { songs, toggleSong, setSongsSung, status, errorMessage } = useSongStore(repository)
+  const { songs, toggleSong, status, errorMessage } = useSongStore(repository)
   const [filter, setFilter] = useState('all')
   const [typeFilter, setTypeFilter] = useState('all')
   const [searchText, setSearchText] = useState('')
@@ -78,7 +78,6 @@ function App() {
         songs={filteredSongs}
         viewMode={viewMode}
         onToggle={toggleSong}
-        onSetGroupSung={setSongsSung}
       />
     </main>
   )

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { SongItem } from './SongItem'
 
 function groupSongs(songs) {
@@ -22,7 +23,7 @@ function groupSongs(songs) {
   return Array.from(grouped.values())
 }
 
-export function SongList({ songs, viewMode, onToggle, onSetGroupSung }) {
+export function SongList({ songs, viewMode, onToggle }) {
   if (songs.length === 0) {
     return (
       <section className="panel">
@@ -31,61 +32,74 @@ export function SongList({ songs, viewMode, onToggle, onSetGroupSung }) {
     )
   }
 
-  if (viewMode === 'grouped') {
-    const groups = groupSongs(songs)
-
-    return (
-      <section className="group-list">
-        {groups.map((group) => (
-          <article key={`${group.seriesNumber}:${group.seriesName}`} className="panel">
-            <div className="group-head">
-              <h3>
-                #{group.seriesNumber} {group.seriesName}
-                {group.year ? ` (${group.year})` : ''}
-              </h3>
-              <div className="group-actions">
-                <button
-                  type="button"
-                  onClick={() =>
-                    onSetGroupSung(
-                      group.songs.map((song) => song.id),
-                      true,
-                    )
-                  }
-                >
-                  全曲歌唱
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    onSetGroupSung(
-                      group.songs.map((song) => song.id),
-                      false,
-                    )
-                  }
-                >
-                  未歌唱に戻す
-                </button>
-              </div>
-            </div>
-            <ul>
-              {group.songs.map((song) => (
-                <SongItem key={song.id} song={song} onToggle={onToggle} />
-              ))}
-            </ul>
-          </article>
-        ))}
-      </section>
-    )
+  if (viewMode === 'list') {
+    return <VirtualSongList songs={songs} onToggle={onToggle} />
   }
+
+  const groups = groupSongs(songs)
+
+  return (
+    <section className="group-list">
+      {groups.map((group) => (
+        <article key={`${group.seriesNumber}:${group.seriesName}`} className="panel">
+          <h3>
+            #{group.seriesNumber} {group.seriesName}
+            {group.year ? ` (${group.year})` : ''}
+          </h3>
+          <ul>
+            {group.songs.map((song) => (
+              <SongItem key={song.id} song={song} onToggle={onToggle} />
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+  )
+}
+
+const ITEM_HEIGHT = 74
+const OVERSCAN = 8
+
+function VirtualSongList({ songs, onToggle }) {
+  const containerRef = useRef(null)
+  const [scrollTop, setScrollTop] = useState(0)
+  const [viewportHeight, setViewportHeight] = useState(560)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) {
+      return
+    }
+
+    const updateHeight = () => {
+      setViewportHeight(container.clientHeight || 560)
+    }
+
+    updateHeight()
+    window.addEventListener('resize', updateHeight)
+    return () => window.removeEventListener('resize', updateHeight)
+  }, [])
+
+  const startIndex = Math.max(0, Math.floor(scrollTop / ITEM_HEIGHT) - OVERSCAN)
+  const visibleCount = Math.ceil(viewportHeight / ITEM_HEIGHT) + OVERSCAN * 2
+  const endIndex = Math.min(songs.length, startIndex + visibleCount)
+  const visibleSongs = songs.slice(startIndex, endIndex)
+  const paddingTop = startIndex * ITEM_HEIGHT
+  const paddingBottom = Math.max(0, (songs.length - endIndex) * ITEM_HEIGHT)
 
   return (
     <section className="panel">
-      <ul>
-        {songs.map((song) => (
-          <SongItem key={song.id} song={song} onToggle={onToggle} />
-        ))}
-      </ul>
+      <div
+        ref={containerRef}
+        className="virtual-scroll"
+        onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)}
+      >
+        <ul className="virtual-list" style={{ paddingTop, paddingBottom }}>
+          {visibleSongs.map((song) => (
+            <SongItem key={song.id} song={song} onToggle={onToggle} />
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }

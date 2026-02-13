@@ -69,20 +69,6 @@ export function createSongRepository(options) {
       emit()
     },
 
-    setSongsSung(songIds, sung) {
-      const targetIds = new Set(songIds)
-      songs = songs.map((song) => {
-        if (!targetIds.has(song.id)) {
-          return song
-        }
-        return buildNextSong(song, { sung, actor, now })
-      })
-
-      savePersistedSongs(songs)
-      publishExternal({ source: clientId, songs })
-      emit()
-    },
-
     dispose() {
       unsubscribeExternal()
       listeners.clear()

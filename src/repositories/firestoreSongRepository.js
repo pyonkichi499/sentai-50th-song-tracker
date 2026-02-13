@@ -1,5 +1,5 @@
 import { signInAnonymously } from 'firebase/auth'
-import { collection, doc, onSnapshot, updateDoc, writeBatch } from 'firebase/firestore'
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { initializeFirebaseClient } from '../lib/firebase'
 
 export function createFirestoreSongRepository() {
@@ -98,22 +98,6 @@ export function createFirestoreSongRepository() {
       const songRef = doc(db, 'songs', songId)
 
       await updateDoc(songRef, buildNextPatch(target, nextSung, user.uid))
-    },
-
-    async setSongsSung(songIds, sung) {
-      const user = await ensureSignedIn()
-      const targetIds = new Set(songIds)
-      const targets = songs.filter((song) => targetIds.has(song.id))
-      if (targets.length === 0) {
-        return
-      }
-
-      const batch = writeBatch(db)
-      targets.forEach((target) => {
-        const songRef = doc(db, 'songs', target.id)
-        batch.update(songRef, buildNextPatch(target, sung, user.uid))
-      })
-      await batch.commit()
     },
 
     dispose() {
