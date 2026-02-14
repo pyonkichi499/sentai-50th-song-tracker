@@ -9,6 +9,8 @@
 - 配信: Firebase Hosting
 - 原本データ: `data/戦隊カラオケリスト.csv`（唯一のソース）
 
+開発時のFirestoreはローカルEmulatorのみを使用し、本物のFirestoreは本番用のみを使用します。
+
 `VITE_DATA_SOURCE` のデフォルトは `firestore` です。
 
 ## 主な機能
@@ -35,18 +37,21 @@ App Check を使う場合は `.env.local` に `VITE_RECAPTCHA_V3_SITE_KEY` も�
 npm run firebase:config:to-env -- firebase-config.txt .env.local
 ```
 
-## ローカル起動
+## ローカル起動（Emulator）
 ```bash
-npm run dev
+# ターミナル1: Firestore/Auth Emulatorを起動
+npm run emulator:start
+
+# ターミナル2: フロント起動（LAN公開: --host）
+npm run local:start
 ```
+
+ローカル起動時は `VITE_USE_FIREBASE_EMULATOR=true` で接続先がEmulatorに切り替わるため、
+本番Firestoreへは書き込みません。
 
 CSV更新後の反映まで含めてローカル起動する場合:
 ```bash
-# 初回だけ（または認証切れ時）
-gcloud auth application-default login
-export FIREBASE_PROJECT_ID=<your-project-id>
-
-# 変換・検証・Firestore反映・開発サーバ起動を一括実行
+# ターミナル1で emulator:start 実行済みの状態で実行
 npm run local:start:fresh
 ```
 
@@ -54,17 +59,17 @@ npm run local:start:fresh
 普段はこの3つだけ使えば十分です。
 
 - `npm run start`
-  - ローカル起動（既存データ維持）
+  - ローカル起動（Emulator接続）
 
 - `npm run start:fresh`
-  - CSV反映 + ローカル起動（やり直し用）
+  - CSV反映 + Emulator反映 + ローカル起動（やり直し用）
   - `data/reading-tasks.json` がある場合は読み補正も自動再適用
 
 - `npm run release`
-  - 検証 + Firestore同期 + Hosting/Rules デプロイ（本番反映）
+  - 検証 + 本番Firestore同期 + Hosting/Rules デプロイ（本番反映）
 
 詳細運用が必要なときだけ、以下の個別コマンドを使ってください。
-`local:prepare`, `check:all`, `deploy:data`, `deploy:app`, `data:readings:extract`, `data:readings:apply`
+`emulator:start`, `local:prepare`, `check:all`, `deploy:data:prod`, `deploy:app:prod`, `data:readings:extract`, `data:readings:apply`
 
 ## Firestore 初期データ投入
 ```bash
@@ -74,15 +79,15 @@ npm run data:convert:official
 # データ検証（重複IDチェック）
 npm run data:check
 
-# ADC でログイン（ローカル開発向け）
-gcloud auth application-default login
-export FIREBASE_PROJECT_ID=<your-project-id>
+# ローカルEmulatorに投入（開発用）
+npm run firestore:seed:local
 
-# Firestore に投入（data/songs.json を読み込み）
-npm run firestore:seed
+# 本番Firestoreに投入（本番反映）
+npm run firestore:seed:prod
 
 # 差分確認のみ（書き込みなし）
-npm run firestore:seed:dry-run
+npm run firestore:seed:local:dry-run
+npm run firestore:seed:prod:dry-run
 ```
 
 `firestore:seed` は同期モードです。原本データに存在しない `songs` ドキュメントは削除されます。
@@ -114,7 +119,7 @@ npm run firestore:seed:dry-run
 2. `data/reading-tasks.prompt.txt` を外部AIへ渡し、`data/reading-tasks.json` の `proposed` を補正
 3. `npm run data:readings:apply`
 4. `npm run data:check`
-5. `npm run deploy:data`
+5. `npm run deploy:data:prod`
 
 サービスアカウント鍵を使う場合は、追加で `GOOGLE_APPLICATION_CREDENTIALS` を指定できます。
 
@@ -127,7 +132,7 @@ npm run firestore:seed:dry-run
 ## デプロイ
 ```bash
 npm run build
-firebase deploy --only hosting,firestore:rules
+firebase deploy --project prod --only hosting,firestore:rules
 ```
 
 ## 補足

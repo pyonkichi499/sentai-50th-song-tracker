@@ -58,9 +58,10 @@ export function initializeFirebaseClient() {
 
   const useEmulator = import.meta.env.VITE_USE_FIREBASE_EMULATOR === 'true'
   if (useEmulator) {
-    const firestoreHost = import.meta.env.VITE_FIRESTORE_EMULATOR_HOST || '127.0.0.1'
+    const defaultHost = typeof window !== 'undefined' ? window.location.hostname : '127.0.0.1'
+    const firestoreHost = import.meta.env.VITE_FIRESTORE_EMULATOR_HOST || defaultHost
     const firestorePort = Number(import.meta.env.VITE_FIRESTORE_EMULATOR_PORT || 8080)
-    const authHost = import.meta.env.VITE_AUTH_EMULATOR_HOST || '127.0.0.1'
+    const authHost = import.meta.env.VITE_AUTH_EMULATOR_HOST || defaultHost
     const authPort = Number(import.meta.env.VITE_AUTH_EMULATOR_PORT || 9099)
 
     connectFirestoreEmulator(db, firestoreHost, firestorePort)

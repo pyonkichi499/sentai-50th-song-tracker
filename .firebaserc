@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "sentai-50th-song-tracker"
+    "default": "sentai-50th-song-tracker",
+    "prod": "sentai-50th-song-tracker"
   }
 }
