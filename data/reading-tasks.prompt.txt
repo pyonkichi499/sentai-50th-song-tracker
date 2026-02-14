@@ -16,14 +16,14 @@
         {
           "field": "songTitleReading",
           "source": "バトルフィーバーJ",
-          "current": "ばとるふぃーばーじゅ",
-          "proposed": "ばとるふぃーばーじゅ"
+          "current": "ばとるふぃーばーじぇい",
+          "proposed": "ばとるふぃーばーじぇい"
         },
         {
           "field": "seriesNameReading",
           "source": "バトルフィーバーJ",
-          "current": "ばとるふぃーばーじゅ",
-          "proposed": "ばとるふぃーばーじゅ"
+          "current": "ばとるふぃーばーじぇい",
+          "proposed": "ばとるふぃーばーじぇい"
         },
         {
           "field": "artistReading",
@@ -41,8 +41,8 @@
         {
           "field": "seriesNameReading",
           "source": "バトルフィーバーJ",
-          "current": "ばとるふぃーばーじゅ",
-          "proposed": "ばとるふぃーばーじゅ"
+          "current": "ばとるふぃーばーじぇい",
+          "proposed": "ばとるふぃーばーじぇい"
         },
         {
           "field": "artistReading",
@@ -60,14 +60,14 @@
         {
           "field": "songTitleReading",
           "source": "大戦隊ゴーグルV",
-          "current": "だいせんたいごーぐるぶ",
-          "proposed": "だいせんたいごーぐるぶ"
+          "current": "だいせんたいごーぐるふぁいぶ",
+          "proposed": "だいせんたいごーぐるふぁいぶ"
         },
         {
           "field": "artistReading",
           "source": "MoJo、こおろぎ'73、ザ・チャープス",
-          "current": "もじょ、こおろぎ'73う、ざ・ちゃーぷす",
-          "proposed": "もじょ、こおろぎ'73う、ざ・ちゃーぷす"
+          "current": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす",
+          "proposed": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす"
         }
       ]
     },
@@ -79,8 +79,8 @@
         {
           "field": "artistReading",
           "source": "MoJo、こおろぎ'73、ザ・チャープス",
-          "current": "もじょ、こおろぎ'73う、ざ・ちゃーぷす",
-          "proposed": "もじょ、こおろぎ'73う、ざ・ちゃーぷす"
+          "current": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす",
+          "proposed": "もじょ、こおろぎななじゅうさん、ざ・ちゃーぷす"
         }
       ]
     },
@@ -92,8 +92,8 @@
         {
           "field": "artistReading",
           "source": "MoJo、こおろぎ'73",
-          "current": "もじょ、こおろぎ'73う",
-          "proposed": "もじょ、こおろぎ'73う"
+          "current": "もじょ、こおろぎななじゅうさん",
+          "proposed": "もじょ、こおろぎななじゅうさん"
         }
       ]
     },
@@ -105,8 +105,8 @@
         {
           "field": "artistReading",
           "source": "MoJo、こおろぎ'73",
-          "current": "もじょ、こおろぎ'73う",
-          "proposed": "もじょ、こおろぎ'73う"
+          "current": "もじょ、こおろぎななじゅうさん",
+          "proposed": "もじょ、こおろぎななじゅうさん"
         }
       ]
     },
@@ -131,8 +131,8 @@
         {
           "field": "songTitleReading",
           "source": "NEVER STOPチェンジマン",
-          "current": "ねばあ すとぷちぇんじまん",
-          "proposed": "ねばあ すとぷちぇんじまん"
+          "current": "ねばー すとっぷ ちぇんじまん",
+          "proposed": "ねばー すとっぷ ちぇんじまん"
         },
         {
           "field": "artistReading",
@@ -150,8 +150,8 @@
         {
           "field": "songTitleReading",
           "source": "DANCEときめく心",
-          "current": "だんけときめくこころ",
-          "proposed": "だんけときめくこころ"
+          "current": "だんすときめくこころ",
+          "proposed": "だんすときめくこころ"
         }
       ]
     },
@@ -163,8 +163,8 @@
         {
           "field": "artistReading",
           "source": "NEW JACK拓郎",
-          "current": "ねう じゃっくたくろう",
-          "proposed": "ねう じゃっくたくろう"
+          "current": "にゅー じゃっくたくろう",
+          "proposed": "にゅー じゃっくたくろう"
         }
       ]
     },
@@ -176,8 +176,8 @@
         {
           "field": "artistReading",
           "source": "NEW JACK拓郎",
-          "current": "ねう じゃっくたくろう",
-          "proposed": "ねう じゃっくたくろう"
+          "current": "にゅー じゃっくたくろう",
+          "proposed": "にゅー じゃっくたくろう"
         }
       ]
     },
@@ -189,8 +189,8 @@
         {
           "field": "songTitleReading",
           "source": "Bomb Dancing メガレンジャー",
-          "current": "ぼえむぶ だんきんぐ めがれんじゃー",
-          "proposed": "ぼえむぶ だんきんぐ めがれんじゃー"
+          "current": "ぼむ だんしんぐ めがれんじゃー",
+          "proposed": "ぼむ だんしんぐ めがれんじゃー"
         }
       ]
     },
@@ -202,8 +202,8 @@
         {
           "field": "songTitleReading",
           "source": "JIKŪ 〜未来戦隊タイムレンジャー〜",
-          "current": "じく 〜みらいせんたいたいむれんじゃー〜",
-          "proposed": "じく 〜みらいせんたいたいむれんじゃー〜"
+          "current": "じくう 〜みらいせんたいたいむれんじゃー〜",
+          "proposed": "じくう 〜みらいせんたいたいむれんじゃー〜"
         }
       ]
     },
@@ -215,8 +215,8 @@
         {
           "field": "artistReading",
           "source": "NAT'S",
-          "current": "なつ うす",
-          "proposed": "なつ うす"
+          "current": "なっつ",
+          "proposed": "なっつ"
         }
       ]
     },
@@ -228,14 +228,14 @@
         {
           "field": "songTitleReading",
           "source": "ミラクル☆Xmas",
-          "current": "みらくる☆えっくすます",
-          "proposed": "みらくる☆えっくすます"
+          "current": "みらくる☆くりすます",
+          "proposed": "みらくる☆くりすます"
         },
         {
           "field": "artistReading",
           "source": "T.R.Futures",
-          "current": "つ うる うふつれす",
-          "proposed": "つ うる うふつれす"
+          "current": "てぃーあーる ふゅーちゃーず",
+          "proposed": "てぃーあーる ふゅーちゃーず"
         }
       ]
     },
@@ -247,8 +247,8 @@
         {
           "field": "songTitleReading",
           "source": "ETERNAL WIND",
-          "current": "えてあーるなあ うぃんづ",
-          "proposed": "えてあーるなあ うぃんづ"
+          "current": "えたーなる うぃんど",
+          "proposed": "えたーなる うぃんど"
         }
       ]
     },
@@ -260,14 +260,14 @@
         {
           "field": "songTitleReading",
           "source": "Don't Stop Your Story!",
-          "current": "どん うつ すとぷ よああ すとりゅ!",
-          "proposed": "どん うつ すとぷ よああ すとりゅ!"
+          "current": "どんと すとっぷ ゆあ すとーりー!",
+          "proposed": "どんと すとっぷ ゆあ すとーりー!"
         },
         {
           "field": "artistReading",
           "source": "T.R.Futures",
-          "current": "つ うる うふつれす",
-          "proposed": "つ うる うふつれす"
+          "current": "てぃーあーる ふゅーちゃーず",
+          "proposed": "てぃーあーる ふゅーちゃーず"
         }
       ]
     },
@@ -292,8 +292,8 @@
         {
           "field": "songTitleReading",
           "source": "We are the ONE 〜僕らはひとつ〜",
-          "current": "うぇ あれ せ おね 〜ぼくらはひとつ〜",
-          "proposed": "うぇ あれ せ おね 〜ぼくらはひとつ〜"
+          "current": "うぃー あー ざ わん 〜ぼくらはひとつ〜",
+          "proposed": "うぃー あー ざ わん 〜ぼくらはひとつ〜"
         }
       ]
     },
@@ -305,14 +305,14 @@
         {
           "field": "songTitleReading",
           "source": "girls in trouble! DEKARANGER",
-          "current": "ぎあーるあーるす いん てぃーろうびーれ! でからんがあ",
-          "proposed": "ぎあーるあーるす いん てぃーろうびーれ! でからんがあ"
+          "current": "がーるず いん とらぶる! でかれんじゃー",
+          "proposed": "がーるず いん とらぶる! でかれんじゃー"
         },
         {
           "field": "artistReading",
           "source": "ジャスミン&ウメコ with デカレンボーイズ",
-          "current": "じゃすみん&うめこ うぃす でかれんぼーいず",
-          "proposed": "じゃすみん&うめこ うぃす でかれんぼーいず"
+          "current": "じゃすみんあんどうめこ うぃず でかれんぼーいず",
+          "proposed": "じゃすみんあんどうめこ うぃず でかれんぼーいず"
         }
       ]
     },
@@ -324,8 +324,8 @@
         {
           "field": "artistReading",
           "source": "Sister MAYO",
-          "current": "しえすたあ まよ",
-          "proposed": "しえすたあ まよ"
+          "current": "しすたー まよ",
+          "proposed": "しすたー まよ"
         }
       ]
     },
@@ -350,8 +350,8 @@
         {
           "field": "songTitleReading",
           "source": "冒険者 ON THE ROAD",
-          "current": "ぼうけんしゃ おん せ ろあづ",
-          "proposed": "ぼうけんしゃ おん せ ろあづ"
+          "current": "ぼうけんしゃ おん ざ ろーど",
+          "proposed": "ぼうけんしゃ おん ざ ろーど"
         }
       ]
     },
@@ -363,8 +363,8 @@
         {
           "field": "songTitleReading",
           "source": "Run",
-          "current": "るん",
-          "proposed": "るん"
+          "current": "らん",
+          "proposed": "らん"
         }
       ]
     },
@@ -376,8 +376,8 @@
         {
           "field": "songTitleReading",
           "source": "Just Make It Out!",
-          "current": "じゅえすつ まけ いつ おうつ!",
-          "proposed": "じゅえすつ まけ いつ おうつ!"
+          "current": "じゃすと めいく いっと あうと!",
+          "proposed": "じゃすと めいく いっと あうと!"
         }
       ]
     },
@@ -389,8 +389,8 @@
         {
           "field": "songTitleReading",
           "source": "Wandering Wolf",
-          "current": "わんでりんぐ をあーるふ",
-          "proposed": "わんでりんぐ をあーるふ"
+          "current": "わんだりんぐ うるふ",
+          "proposed": "わんだりんぐ うるふ"
         }
       ]
     },
@@ -402,14 +402,14 @@
         {
           "field": "songTitleReading",
           "source": "炎神ファーストラップ -Type Normal-",
-          "current": "ほのおしんふぁーすとらっぷ -てぃーわいぺ のあーるまあ",
-          "proposed": "ほのおしんふぁーすとらっぷ -てぃーわいぺ のあーるまあ"
+          "current": "えんじんふぁーすとらっぷ -たいぷ のーまる-",
+          "proposed": "えんじんふぁーすとらっぷ -たいぷ のーまる-"
         },
         {
           "field": "artistReading",
           "source": "Project.R with 炎神キッズ",
-          "current": "ぴーろじぇしーつ うる うぃす ほのおしんきっず",
-          "proposed": "ぴーろじぇしーつ うる うぃす ほのおしんきっず"
+          "current": "ぷろじぇくと あーる うぃず えんじんきっず",
+          "proposed": "ぷろじぇくと あーる うぃず えんじんきっず"
         }
       ]
     },
@@ -434,8 +434,21 @@
         {
           "field": "artistReading",
           "source": "Project.R",
-          "current": "ぴーろじぇしーつ うる",
-          "proposed": "ぴーろじぇしーつ うる"
+          "current": "ぷろじぇくと あーる",
+          "proposed": "ぷろじぇくと あーる"
+        }
+      ]
+    },
+    {
+      "id": "series_36_ed_1",
+      "seriesNumber": 36,
+      "seriesName": "特命戦隊ゴーバスターズ",
+      "fields": [
+        {
+          "field": "artistReading",
+          "source": "謎の新ユニットSTA☆MEN",
+          "current": "なぞのしんゆにっとすた☆めん",
+          "proposed": "なぞのしんゆにっとすた☆めん"
         }
       ]
     },
@@ -445,10 +458,23 @@
       "seriesName": "特命戦隊ゴーバスターズ",
       "fields": [
         {
-          "field": "artistReading",
-          "source": "謎の新ユニットSTA☆MEN",
-          "current": "なぞのしんゆにっとすた☆めん",
-          "proposed": "なぞのしんゆにっとすた☆めん"
+          "field": "songTitleReading",
+          "source": "One wish,One day",
+          "current": "おね うぃしゅ,おね だゆ",
+          "proposed": "おね うぃしゅ,おね だゆ"
+        }
+      ]
+    },
+    {
+      "id": "series_36_ed_4",
+      "seriesNumber": 36,
+      "seriesName": "特命戦隊ゴーバスターズ",
+      "fields": [
+        {
+          "field": "songTitleReading",
+          "source": "Blue Banana Moon",
+          "current": "びーるえ ばなな もおん",
+          "proposed": "びーるえ ばなな もおん"
         }
       ]
     },
@@ -473,8 +499,8 @@
         {
           "field": "artistReading",
           "source": "Project.R",
-          "current": "ぴーろじぇしーつ うる",
-          "proposed": "ぴーろじぇしーつ うる"
+          "current": "ぷろじぇくと あーる",
+          "proposed": "ぷろじぇくと あーる"
         }
       ]
     },
@@ -486,8 +512,8 @@
         {
           "field": "songTitleReading",
           "source": "LUCKYSTAR",
-          "current": "るけーけーわいえすたあ",
-          "proposed": "るけーけーわいえすたあ"
+          "current": "らっきーすたー",
+          "proposed": "らっきーすたー"
         }
       ]
     },
@@ -499,20 +525,20 @@
         {
           "field": "songTitleReading",
           "source": "ルパンレンジャーVSパトレンジャー",
-          "current": "るぱんれんじゃーびーすぱとれんじゃー",
-          "proposed": "るぱんれんじゃーびーすぱとれんじゃー"
+          "current": "るぱんれんじゃーぶいえすぱとれんじゃー",
+          "proposed": "るぱんれんじゃーぶいえすぱとれんじゃー"
         },
         {
           "field": "seriesNameReading",
           "source": "快盗戦隊ルパンレンジャーVS警察戦隊パトレンジャー",
-          "current": "かいとうせんたいるぱんれんじゃーびーすけいさつせんたいぱとれんじゃー",
-          "proposed": "かいとうせんたいるぱんれんじゃーびーすけいさつせんたいぱとれんじゃー"
+          "current": "かいとうせんたいるぱんれんじゃーぶいえすけいさつせんたいぱとれんじゃー",
+          "proposed": "かいとうせんたいるぱんれんじゃーぶいえすけいさつせんたいぱとれんじゃー"
         },
         {
           "field": "artistReading",
           "source": "Project.R",
-          "current": "ぴーろじぇしーつ うる",
-          "proposed": "ぴーろじぇしーつ うる"
+          "current": "ぷろじぇくと あーる",
+          "proposed": "ぷろじぇくと あーる"
         }
       ]
     },
@@ -524,8 +550,8 @@
         {
           "field": "artistReading",
           "source": "Sister MAYO",
-          "current": "しえすたあ まよ",
-          "proposed": "しえすたあ まよ"
+          "current": "しすたー まよ",
+          "proposed": "しすたー まよ"
         }
       ]
     },
@@ -537,8 +563,8 @@
         {
           "field": "songTitleReading",
           "source": "弾丸Shooting Star",
-          "current": "だんがんしょおちんぐ すたあ",
-          "proposed": "だんがんしょおちんぐ すたあ"
+          "current": "だんがんしゅーてぃんぐ すたー",
+          "proposed": "だんがんしゅーてぃんぐ すたー"
         }
       ]
     },
@@ -550,8 +576,8 @@
         {
           "field": "songTitleReading",
           "source": "Winding Road",
-          "current": "うぃんぢんぐ ろあづ",
-          "proposed": "うぃんぢんぐ ろあづ"
+          "current": "わいんでぃんぐ ろーど",
+          "proposed": "わいんでぃんぐ ろーど"
         }
       ]
     },
@@ -563,8 +589,8 @@
         {
           "field": "songTitleReading",
           "source": "Perfect Blue",
-          "current": "ぺあーるふぇしーつ びーるえ",
-          "proposed": "ぺあーるふぇしーつ びーるえ"
+          "current": "ぱーふぇくと ぶるー",
+          "proposed": "ぱーふぇくと ぶるー"
         }
       ]
     },
@@ -589,8 +615,8 @@
         {
           "field": "songTitleReading",
           "source": "Don't Boo! ドンブラザーズ",
-          "current": "どん うつ ぼお! どんぶらざーず",
-          "proposed": "どん うつ ぼお! どんぶらざーず"
+          "current": "どんと ぶー! どんぶらざーず",
+          "proposed": "どんと ぶー! どんぶらざーず"
         },
         {
           "field": "artistReading",
@@ -608,8 +634,8 @@
         {
           "field": "songTitleReading",
           "source": "Pride and Brave",
-          "current": "ぴーりで あんづ びーらべ",
-          "proposed": "ぴーりで あんづ びーらべ"
+          "current": "ぷらいど あんど ぶれいぶ",
+          "proposed": "ぷらいど あんど ぶれいぶ"
         }
       ]
     },
@@ -621,8 +647,8 @@
         {
           "field": "songTitleReading",
           "source": "コツコツ-PON-PON",
-          "current": "こつこつ-ぽん うぽん",
-          "proposed": "こつこつ-ぽん うぽん"
+          "current": "こつこつ ぽんぽん",
+          "proposed": "こつこつ ぽんぽん"
         }
       ]
     },
@@ -634,14 +660,14 @@
         {
           "field": "songTitleReading",
           "source": "WINNER!ゴジュウジャー!",
-          "current": "うぃんなあ!ごじゅうじゃー!",
-          "proposed": "うぃんなあ!ごじゅうじゃー!"
+          "current": "うぃなー!ごじゅうじゃー!",
+          "proposed": "うぃなー!ごじゅうじゃー!"
         },
         {
           "field": "artistReading",
           "source": "Wienners",
-          "current": "うぃえんねあーるす",
-          "proposed": "うぃえんねあーるす"
+          "current": "うぃーなーず",
+          "proposed": "うぃーなーず"
         }
       ]
     },
@@ -653,8 +679,8 @@
         {
           "field": "songTitleReading",
           "source": "YOU BE ONE WINNER",
-          "current": "よう べ おね うぃんなあ",
-          "proposed": "よう べ おね うぃんなあ"
+          "current": "ゆー びー わん うぃなー",
+          "proposed": "ゆー びー わん うぃなー"
         }
       ]
     },
@@ -666,8 +692,8 @@
         {
           "field": "songTitleReading",
           "source": "ビリビリBe-lie-ving",
-          "current": "びりびりべ うりえ うびんぐ",
-          "proposed": "びりびりべ うりえ うびんぐ"
+          "current": "びりびり びーらいびんぐ",
+          "proposed": "びりびり びーらいびんぐ"
         }
       ]
     },
@@ -679,8 +705,8 @@
         {
           "field": "seriesNameReading",
           "source": "百獣戦隊ガオレンジャーVSスーパー戦隊",
-          "current": "ひゃくじゅうせんたいがおれんじゃーびーすすーぱーせんたい",
-          "proposed": "ひゃくじゅうせんたいがおれんじゃーびーすすーぱーせんたい"
+          "current": "ひゃくじゅうせんたいがおれんじゃーぶいえすすーぱーせんたい",
+          "proposed": "ひゃくじゅうせんたいがおれんじゃーぶいえすすーぱーせんたい"
         }
       ]
     },
@@ -692,8 +718,8 @@
         {
           "field": "seriesNameReading",
           "source": "轟轟戦隊ボウケンジャーVSスーパー戦隊",
-          "current": "ごうごうせんたいぼうけんじゃーびーすすーぱーせんたい",
-          "proposed": "ごうごうせんたいぼうけんじゃーびーすすーぱーせんたい"
+          "current": "ごうごうせんたいぼうけんじゃーぶいえすすーぱーせんたい",
+          "proposed": "ごうごうせんたいぼうけんじゃーぶいえすすーぱーせんたい"
         },
         {
           "field": "artistReading",
@@ -711,8 +737,8 @@
         {
           "field": "seriesNameReading",
           "source": "スーパー戦隊VSシリーズ劇場",
-          "current": "すーぱーせんたいびーすしりーずげきじょう",
-          "proposed": "すーぱーせんたいびーすしりーずげきじょう"
+          "current": "すーぱーせんたいぶいえすしりーずげきじょう",
+          "proposed": "すーぱーせんたいぶいえすしりーずげきじょう"
         }
       ]
     },
@@ -724,8 +750,8 @@
         {
           "field": "songTitleReading",
           "source": "最高最強 SUPER STARS!",
-          "current": "さいこうさいきょう すぱあ すたあーるす!",
-          "proposed": "さいこうさいきょう すぱあ すたあーるす!"
+          "current": "さいこうさいきょう すーぱー すたーず!",
+          "proposed": "さいこうさいきょう すーぱー すたーず!"
         },
         {
           "field": "artistReading",
@@ -743,8 +769,8 @@
         {
           "field": "artistReading",
           "source": "桃井はるこ feat. 山形ユキオ",
-          "current": "ももいはるこ ふぇあつ  やまがたゆきお",
-          "proposed": "ももいはるこ ふぇあつ  やまがたゆきお"
+          "current": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお"
         }
       ]
     },
@@ -756,8 +782,8 @@
         {
           "field": "artistReading",
           "source": "桃井はるこfeat.山形ユキオあんどMoJo",
-          "current": "ももいはるこふぇあつ やまがたゆきおあんどもじょ",
-          "proposed": "ももいはるこふぇあつ やまがたゆきおあんどもじょ"
+          "current": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ"
         }
       ]
     },
@@ -769,8 +795,8 @@
         {
           "field": "artistReading",
           "source": "桃井はるこfeat.山形ユキオあんどMoJo",
-          "current": "ももいはるこふぇあつ やまがたゆきおあんどもじょ",
-          "proposed": "ももいはるこふぇあつ やまがたゆきおあんどもじょ"
+          "current": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ",
+          "proposed": "ももいはるこ ふぃーちゃりんぐ やまがたゆきお あんど もじょ"
         }
       ]
     }
