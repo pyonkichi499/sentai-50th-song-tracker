@@ -44,21 +44,35 @@ function sortBySeries(a, b) {
   return a.songTitle.localeCompare(b.songTitle, 'ja')
 }
 
-function sortByRecentUpdateDesc(a, b) {
-  const aTime = Date.parse(a.sungAt || '')
-  const bTime = Date.parse(b.sungAt || '')
-  const safeATime = Number.isNaN(aTime) ? -1 : aTime
-  const safeBTime = Number.isNaN(bTime) ? -1 : bTime
+function parsedSungAt(song) {
+  const time = Date.parse(song.sungAt || '')
+  return Number.isNaN(time) ? null : time
+}
 
-  if (safeATime !== safeBTime) {
-    return safeBTime - safeATime
+function compareByUpdateTime(a, b, direction) {
+  const aTime = parsedSungAt(a)
+  const bTime = parsedSungAt(b)
+  const aHasUpdate = aTime !== null
+  const bHasUpdate = bTime !== null
+
+  // Always place unsung/unupdated songs after songs with sungAt.
+  if (aHasUpdate !== bHasUpdate) {
+    return aHasUpdate ? -1 : 1
+  }
+
+  if (aTime !== bTime) {
+    return direction === 'asc' ? aTime - bTime : bTime - aTime
   }
 
   return sortBySeries(a, b)
 }
 
+function sortByRecentUpdateDesc(a, b) {
+  return compareByUpdateTime(a, b, 'desc')
+}
+
 function sortByRecentUpdateAsc(a, b) {
-  return sortByRecentUpdateDesc(b, a)
+  return compareByUpdateTime(a, b, 'asc')
 }
 
 function fuzzySearchSongs(songs, query) {

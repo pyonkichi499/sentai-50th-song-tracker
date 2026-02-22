@@ -10,8 +10,8 @@ export const TYPE_FILTERS = [
 
 export const SORT_MODES = [
   { key: 'series', label: '戦隊順' },
-  { key: 'updatedDesc', label: '更新順（降順）' },
   { key: 'updatedAsc', label: '更新順（昇順）' },
+  { key: 'updatedDesc', label: '更新順（降順）' },
 ]
 
 export const FILTER_ALL = 'all'
