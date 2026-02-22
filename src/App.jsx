@@ -84,7 +84,7 @@ function App() {
         seriesCount={uniqueSeriesCount(songs)}
       />
       <SearchBox searchText={searchText} setSearchText={setSearchText} />
-      <SongList songs={filteredSongs} onToggle={toggleSong} />
+      <SongList songs={filteredSongs} sortMode={sortMode} onToggle={toggleSong} />
     </main>
   )
 }

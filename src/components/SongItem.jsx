@@ -16,7 +16,7 @@ function formatDate(iso) {
   })
 }
 
-export function SongItem({ song, onToggle }) {
+export function SongItem({ song, onToggle, showSeries = false }) {
   const normalizedVariant = String(song.variant ?? '')
     .normalize('NFKC')
     .replace(/\s+/g, '')
@@ -29,6 +29,12 @@ export function SongItem({ song, onToggle }) {
         <input type="checkbox" checked={song.sung} onChange={() => onToggle(song.id)} />
         <div className="song-meta">
           <p className="song-title">{song.songTitle}</p>
+          {showSeries ? (
+            <p className="song-subline">
+              #{song.seriesNumber} {song.seriesName}
+              {song.year ? ` (${song.year})` : ''}
+            </p>
+          ) : null}
           <p className="song-subline">
             {song.songType} #{song.songNumber}
             {song.artist ? ` / ${song.artist}` : ''}

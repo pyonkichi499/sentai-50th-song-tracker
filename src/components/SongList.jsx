@@ -1,4 +1,5 @@
 import { eraLabel, eraOrder } from '../constants/eraBuckets'
+import { SORT_UPDATED_ASC, SORT_UPDATED_DESC } from '../constants/filters'
 import { SongItem } from './SongItem'
 
 function groupSongs(songs) {
@@ -67,13 +68,34 @@ function GroupedBySeriesByEra({ eraGroups, onToggle }) {
   )
 }
 
-export function SongList({ songs, onToggle }) {
+function FlatSongList({ songs, onToggle }) {
+  return (
+    <section className="panel">
+      <ul>
+        {songs.map((song) => (
+          <SongItem
+            key={song.id}
+            song={song}
+            onToggle={onToggle}
+            showSeries
+          />
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+export function SongList({ songs, sortMode, onToggle }) {
   if (songs.length === 0) {
     return (
       <section className="panel">
         <p className="empty">該当する曲がありません。</p>
       </section>
     )
+  }
+
+  if (sortMode === SORT_UPDATED_DESC || sortMode === SORT_UPDATED_ASC) {
+    return <FlatSongList songs={songs} onToggle={onToggle} />
   }
 
   const eraGroups = groupSongsByEra(songs)

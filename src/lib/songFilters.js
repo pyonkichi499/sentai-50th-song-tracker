@@ -1,5 +1,10 @@
 import Fuse from 'fuse.js'
-import { FILTER_ALL, SORT_SERIES, SORT_UPDATED } from '../constants/filters.js'
+import {
+  FILTER_ALL,
+  SORT_SERIES,
+  SORT_UPDATED_ASC,
+  SORT_UPDATED_DESC,
+} from '../constants/filters.js'
 
 function normalizeText(value) {
   return toHiragana(String(value ?? '').normalize('NFKC')).toLowerCase().trim()
@@ -39,7 +44,7 @@ function sortBySeries(a, b) {
   return a.songTitle.localeCompare(b.songTitle, 'ja')
 }
 
-function sortByRecentUpdate(a, b) {
+function sortByRecentUpdateDesc(a, b) {
   const aTime = Date.parse(a.sungAt || '')
   const bTime = Date.parse(b.sungAt || '')
   const safeATime = Number.isNaN(aTime) ? -1 : aTime
@@ -50,6 +55,10 @@ function sortByRecentUpdate(a, b) {
   }
 
   return sortBySeries(a, b)
+}
+
+function sortByRecentUpdateAsc(a, b) {
+  return sortByRecentUpdateDesc(b, a)
 }
 
 function fuzzySearchSongs(songs, query) {
@@ -147,7 +156,13 @@ export function filterAndSortSongs({
     searched = strictMatches.length > 0 ? strictMatches : fuzzySearchSongs(filtered, looseQuery || query)
   }
 
-  return searched.toSorted(sortMode === SORT_UPDATED ? sortByRecentUpdate : sortBySeries)
+  if (sortMode === SORT_UPDATED_DESC) {
+    return searched.toSorted(sortByRecentUpdateDesc)
+  }
+  if (sortMode === SORT_UPDATED_ASC) {
+    return searched.toSorted(sortByRecentUpdateAsc)
+  }
+  return searched.toSorted(sortBySeries)
 }
 
 export function countSung(songs) {

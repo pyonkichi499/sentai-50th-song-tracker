@@ -10,12 +10,14 @@ export const TYPE_FILTERS = [
 
 export const SORT_MODES = [
   { key: 'series', label: '戦隊順' },
-  { key: 'updated', label: '更新順' },
+  { key: 'updatedDesc', label: '更新順（降順）' },
+  { key: 'updatedAsc', label: '更新順（昇順）' },
 ]
 
 export const FILTER_ALL = 'all'
 export const SORT_SERIES = 'series'
-export const SORT_UPDATED = 'updated'
+export const SORT_UPDATED_DESC = 'updatedDesc'
+export const SORT_UPDATED_ASC = 'updatedAsc'
 
 export function statusFilterLabel(filterKey) {
   if (filterKey === FILTER_ALL) {
@@ -32,5 +34,11 @@ export function typeFilterLabel(filterKey) {
 }
 
 export function sortModeLabel(mode) {
-  return mode === SORT_UPDATED ? '更新順' : '戦隊順'
+  if (mode === SORT_UPDATED_DESC) {
+    return '更新順（降順）'
+  }
+  if (mode === SORT_UPDATED_ASC) {
+    return '更新順（昇順）'
+  }
+  return '戦隊順'
 }
