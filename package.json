@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "start": "npm run local:start",
+    "start:dev": "vite --mode dev --host",
     "start:fresh": "npm run local:start:fresh",
     "release": "npm run deploy:all:prod",
     "build": "vite build",
